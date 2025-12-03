@@ -181,7 +181,7 @@ export default function EventCard({
                                 margin: 0,
                             }}
                         >
-                            {price.includes("USD") ? (
+                            {price && price.includes("USD") ? (
                                 <>
                                     {price.substring(0, price.indexOf("USD"))}
                                     <span style={{ fontWeight: 600 }}>

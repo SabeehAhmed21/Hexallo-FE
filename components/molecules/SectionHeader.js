@@ -18,16 +18,12 @@ export default function SectionHeader({
         "Global Highlights",
     ];
 
-    const shouldHaveMargin = hasMargin || titlesWithMargin.includes(title);
+    const shouldHaveMargin =
+        hasMargin || (title && titlesWithMargin.includes(title));
     let marginLeft = "0";
-    if (alignLeft) {
-        marginLeft = "2rem";
-    } else if (shouldHaveMargin) {
-        marginLeft = "2rem";
-    }
 
-    const marginBottom = title === "Explore Ghana" ? "0" : "24px";
-    
+    const marginBottom = title && title === "Explore Ghana" ? "0" : "24px";
+
     return (
         <div style={{ width: "100%", marginBottom: marginBottom }}>
             <div

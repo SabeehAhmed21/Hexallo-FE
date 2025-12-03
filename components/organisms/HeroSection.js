@@ -26,21 +26,11 @@ export default function HeroSection() {
     };
 
     return (
-        <div
-            className="w-full py-6"
-            style={{ paddingLeft: "39px", paddingRight: "39px" }}
-        >
-            <div
-                style={{
-                    maxWidth: "1440px",
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                }}
-            >
+        <div className="w-full py-6">
+            <div>
                 <div
                     className="relative rounded-xl overflow-hidden mx-auto"
                     style={{
-                        width: "1356px",
                         height: "570px",
                     }}
                 >

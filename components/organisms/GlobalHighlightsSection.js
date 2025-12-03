@@ -9,7 +9,7 @@ export default function GlobalHighlightsSection({ title, highlights }) {
             cardType="globalHighlight"
             backgroundColor="#FFFFFF"
             alignLeft={false}
-            cardGap="16px"
+            cardGap="8px"
             cardJustifyContent="flex-start"
             cardMarginLeft="2rem"
             isScrollable={true}

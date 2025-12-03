@@ -8,7 +8,7 @@ export default function CardSection({
     alignLeft = false,
     showArrow = true,
     cardMarginLeft = null,
-    cardGap = "16px",
+    cardGap = "8px",
     cardJustifyContent = "center",
     isScrollable = true,
     customCardWidth = null,
@@ -34,18 +34,10 @@ export default function CardSection({
         <section
             className={`py-8 ${isScrollable ? "overflow-hidden" : ""}`}
             style={{
-                paddingLeft: "39px",
-                paddingRight: "39px",
                 backgroundColor: backgroundColor,
             }}
         >
-            <div
-                style={{
-                    maxWidth: "1440px",
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                }}
-            >
+            <div>
                 {/* Section Wrapper */}
                 <div
                     style={{

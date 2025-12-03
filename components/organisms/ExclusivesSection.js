@@ -8,9 +8,6 @@ export default function ExclusivesSection({ title, cards }) {
             cards={cards}
             cardType="exclusive"
             backgroundColor="#FFFFFF"
-            cardGap="24px"
-            cardJustifyContent="flex-start"
-            isScrollable={false}
         />
     );
 }

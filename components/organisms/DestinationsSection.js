@@ -8,7 +8,7 @@ export default function DestinationsSection({ title, destinations }) {
             cards={destinations}
             cardType="destination"
             backgroundColor="#FFFFFF"
-            cardGap="16px"
+            cardGap="8px"
             cardJustifyContent="flex-start"
             cardMarginLeft={title === "Buzzing Destinations" ? "2rem" : "0"}
             isScrollable={true}

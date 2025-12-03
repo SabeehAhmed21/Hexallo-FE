@@ -23,7 +23,7 @@ export default function CardWrapper({ cardType, cardData, index, ...props }) {
         return null;
     }
 
-    return <CardComponent key={index} {...cardData} {...props} />;
+    return <CardComponent key={index} {...cardData} {...props} index={index} />;
 }
 
 CardWrapper.propTypes = {

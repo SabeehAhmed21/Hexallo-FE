@@ -3,18 +3,21 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-export default function ExclusiveCard({ image, title, description, cta }) {
+export default function ExclusiveCard({
+    image,
+    title,
+    description,
+    cta,
+    index,
+}) {
     const [imageError, setImageError] = useState(false);
 
-    // Half width of Global Highlights card
-    const cardWidth = "160.85569763183595px";
-    const cardHeight = "387.7423095703125px";
+    const cardHeight = "316px";
 
     return (
         <div
-            className="relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow flex-1"
+            className="relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow flex-shrink-0 w-full sm:w-[300px] md:w-[667px]"
             style={{
-                width: cardWidth,
                 height: cardHeight,
             }}
         >
@@ -45,7 +48,7 @@ export default function ExclusiveCard({ image, title, description, cta }) {
             <div
                 className="absolute bottom-0 left-0 right-0 z-10"
                 style={{
-                    height: "105px",
+                    height: "111px",
                     backgroundColor: "rgba(0, 0, 0, 0.5)",
                 }}
             ></div>
@@ -124,4 +127,5 @@ ExclusiveCard.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     cta: PropTypes.string.isRequired,
+    index: PropTypes.number,
 };

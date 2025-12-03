@@ -39,20 +39,12 @@ export default function ExploreGhanaSection({ title, categories }) {
     return (
         <section
             style={{
-                paddingLeft: "39px",
-                paddingRight: "39px",
                 backgroundColor: "#FAF8ED",
                 marginTop: "37.33px",
                 marginBottom: "24.4px",
             }}
         >
-            <div
-                style={{
-                    maxWidth: "1440px",
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                }}
-            >
+            <div>
                 <div style={{ marginBottom: 0 }}>
                     <SectionWrapper
                         title={title}
@@ -60,7 +52,7 @@ export default function ExploreGhanaSection({ title, categories }) {
                         cardType="category"
                         backgroundColor="#FAF8ED"
                         showArrow={false}
-                        cardGap="16px"
+                        cardGap="8px"
                         cardMarginLeft="0"
                         isScrollable={false}
                         layoutType="grid"
@@ -70,7 +62,7 @@ export default function ExploreGhanaSection({ title, categories }) {
                 <div
                     className="flex flex-wrap justify-center"
                     style={{
-                        gap: "16px",
+                        gap: "8px",
                         marginBottom: "16px",
                     }}
                 >
@@ -104,7 +96,7 @@ export default function ExploreGhanaSection({ title, categories }) {
                 <div
                     className="flex flex-wrap justify-center"
                     style={{
-                        gap: "16px",
+                        gap: "8px",
                         marginBottom: "16px",
                     }}
                 >
@@ -138,7 +130,7 @@ export default function ExploreGhanaSection({ title, categories }) {
                 <div
                     className="flex flex-wrap justify-center"
                     style={{
-                        gap: "16px",
+                        gap: "8px",
                     }}
                 >
                     {categories.slice(5, 8).map((category, index) => (

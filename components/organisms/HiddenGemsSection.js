@@ -8,7 +8,7 @@ export default function HiddenGemsSection({ title, gems }) {
             cards={gems}
             cardType="hiddenGem"
             backgroundColor="#FFFFFF"
-            cardGap="16px"
+            cardGap="8px"
             cardJustifyContent="flex-start"
             cardMarginLeft="2rem"
             isScrollable={true}

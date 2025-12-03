@@ -7,125 +7,89 @@ export default function SectionWrapper({
     cards = [],
     cardType = "event",
     backgroundColor = "#FFFFFF",
-    alignLeft = false,
     showArrow = true,
-    cardMarginLeft = null,
-    cardGap = "16px",
-    cardJustifyContent = "center",
-    isScrollable = true,
-    layoutType = "flex", // "flex" or "grid"
-    customCardProps = {},
 }) {
-    // Determine if title should have margin
-    const shouldAlignLeft = alignLeft || title === "Ghana's Top 10s";
-
-    let shouldHaveCardMargin = "0";
-    if (cardMarginLeft !== null) {
-        shouldHaveCardMargin = cardMarginLeft;
-    } else if (title === "Buzzing Destinations") {
-        shouldHaveCardMargin = "2rem";
-    }
-
     return (
         <section
-            className={`py-8 ${isScrollable ? "overflow-hidden" : ""}`}
+            className="py-8"
             style={{
-                paddingLeft: "39px",
-                paddingRight: "39px",
                 backgroundColor: backgroundColor,
             }}
         >
-            <div
-                style={{
-                    maxWidth: "1440px",
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                }}
-            >
-                {/* Section Wrapper */}
+            <div>
                 <div
                     style={{
                         display: "flex",
                         flexDirection: "column",
                     }}
                 >
-                    {/* Section Header */}
                     <SectionHeader
                         title={title}
-                        alignLeft={shouldAlignLeft}
+                        alignLeft={false}
                         showArrow={showArrow}
                     />
 
-                    {/* Cards Container */}
-                    {isScrollable && (
-                        <div
-                            className="overflow-x-auto pb-4 scrollbar-hide"
-                            style={{ width: "100%" }}
-                        >
-                            <div
-                                className={
-                                    layoutType === "grid"
-                                        ? "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3"
-                                        : "flex"
-                                }
-                                style={{
-                                    gap: cardGap,
-                                    justifyContent: cardJustifyContent,
-                                    marginLeft: shouldHaveCardMargin,
-                                }}
-                            >
-                                {cards.map((cardData, index) => (
-                                    <CardWrapper
-                                        key={index}
-                                        cardType={cardType}
-                                        cardData={cardData}
-                                        index={index}
-                                        {...customCardProps}
-                                    />
-                                ))}
-                            </div>
-                        </div>
-                    )}
-                    {!isScrollable && layoutType === "grid" && (
-                        <div
-                            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3"
-                            style={{
-                                gap: cardGap,
-                                marginLeft: shouldHaveCardMargin,
-                            }}
-                        >
-                            {cards.map((cardData, index) => (
-                                <CardWrapper
-                                    key={index}
-                                    cardType={cardType}
-                                    cardData={cardData}
-                                    index={index}
-                                    {...customCardProps}
-                                />
-                            ))}
-                        </div>
-                    )}
-                    {!isScrollable && layoutType !== "grid" && (
-                        <div
-                            className="flex"
-                            style={{
-                                gap: cardGap,
-                                justifyContent: cardJustifyContent,
-                                width: "100%",
-                                marginLeft: shouldHaveCardMargin,
-                            }}
-                        >
-                            {cards.map((cardData, index) => (
-                                <CardWrapper
-                                    key={index}
-                                    cardType={cardType}
-                                    cardData={cardData}
-                                    index={index}
-                                    {...customCardProps}
-                                />
-                            ))}
-                        </div>
-                    )}
+                    {/* Responsive Cards Container */}
+                    <div className="w-full">
+                        {/* Exclusive cards: Only 2 cards, side by side on medium+ screens */}
+                        {cardType === "exclusive" ? (
+                            <>
+                                {/* Mobile: Horizontal scroll with smaller cards */}
+                                <div className="flex overflow-x-auto pb-4 scrollbar-hide md:hidden gap-2">
+                                    {cards
+                                        .slice(0, 2)
+                                        .map((cardData, index) => (
+                                            <CardWrapper
+                                                key={index}
+                                                cardType={cardType}
+                                                cardData={cardData}
+                                                index={index}
+                                            />
+                                        ))}
+                                </div>
+
+                                {/* Medium and Large: 2 cards side by side */}
+                                <div className="hidden md:flex md:gap-4 md:justify-center">
+                                    {cards
+                                        .slice(0, 2)
+                                        .map((cardData, index) => (
+                                            <CardWrapper
+                                                key={index}
+                                                cardType={cardType}
+                                                cardData={cardData}
+                                                index={index}
+                                            />
+                                        ))}
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                {/* Mobile: Horizontal scroll */}
+                                <div className="flex overflow-x-auto pb-4 scrollbar-hide md:hidden gap-2">
+                                    {cards.map((cardData, index) => (
+                                        <CardWrapper
+                                            key={index}
+                                            cardType={cardType}
+                                            cardData={cardData}
+                                            index={index}
+                                        />
+                                    ))}
+                                </div>
+
+                                {/* Tablet and Desktop: Grid layout */}
+                                <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                                    {cards.map((cardData, index) => (
+                                        <CardWrapper
+                                            key={index}
+                                            cardType={cardType}
+                                            cardData={cardData}
+                                            index={index}
+                                        />
+                                    ))}
+                                </div>
+                            </>
+                        )}
+                    </div>
                 </div>
             </div>
         </section>
@@ -144,12 +108,5 @@ SectionWrapper.propTypes = {
         "globalHighlight",
     ]).isRequired,
     backgroundColor: PropTypes.string,
-    alignLeft: PropTypes.bool,
     showArrow: PropTypes.bool,
-    cardMarginLeft: PropTypes.string,
-    cardGap: PropTypes.string,
-    cardJustifyContent: PropTypes.string,
-    isScrollable: PropTypes.bool,
-    layoutType: PropTypes.oneOf(["flex", "grid"]),
-    customCardProps: PropTypes.object,
 };

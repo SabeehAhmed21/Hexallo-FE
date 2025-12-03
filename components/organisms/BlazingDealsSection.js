@@ -13,17 +13,8 @@ export default function BlazingDealsSection({ title, offers }) {
     const swiperRef = useRef(null);
 
     return (
-        <section
-            className="py-12 bg-white"
-            style={{ paddingLeft: "39px", paddingRight: "39px" }}
-        >
-            <div
-                style={{
-                    maxWidth: "1440px",
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                }}
-            >
+        <section className="py-12 bg-white">
+            <div>
                 <div className="flex flex-col lg:flex-row gap-8 items-start">
                     {/* Left Section */}
                     <div className="flex-1 lg:max-w-md">

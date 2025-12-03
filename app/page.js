@@ -3,12 +3,10 @@ import MainNav from "../components/organisms/MainNav";
 import SubNav from "../components/organisms/SubNav";
 import HeroSection from "../components/organisms/HeroSection";
 import EventSection from "../components/organisms/EventSection";
+import SectionWrapper from "../components/organisms/SectionWrapper";
 import ExclusivesSection from "../components/organisms/ExclusivesSection";
-import DestinationsSection from "../components/organisms/DestinationsSection";
 import BlazingDealsSection from "../components/organisms/BlazingDealsSection";
-import HiddenGemsSection from "../components/organisms/HiddenGemsSection";
 import ExploreGhanaSection from "../components/organisms/ExploreGhanaSection";
-import GlobalHighlightsSection from "../components/organisms/GlobalHighlightsSection";
 import Footer from "../components/organisms/Footer";
 
 export default function Home() {
@@ -378,33 +376,48 @@ export default function Home() {
             <TopHeader />
             <MainNav />
             <SubNav />
-            <HeroSection />
-            <EventSection
-                title="Tonight's Spotlight"
-                events={tonightsSpotlightEvents}
-            />
-            <EventSection title="Hot This Week" events={hotThisWeekEvents} />
-            <EventSection title="Unmissable" events={unmissableEvents} />
-            <ExclusivesSection title="Exclusives" cards={exclusivesCards} />
-            <EventSection title="For you" events={forYouEvents} />
-            <DestinationsSection
-                title="Buzzing Destinations"
-                destinations={buzzingDestinations}
-            />
-            <BlazingDealsSection
-                title="Blazing Deals"
-                offers={blazingDealsOffers}
-            />
-            <HiddenGemsSection title="Discover Hidden Gems" gems={hiddenGems} />
-            <ExploreGhanaSection
-                title="Explore Ghana"
-                categories={exploreGhanaCategories}
-            />
-            <EventSection title="Ghana's Top 10s" events={ghanasTop10s} />
-            <GlobalHighlightsSection
-                title="Global Highlights"
-                highlights={globalHighlights}
-            />
+            <div className="mx-auto " style={{ width: "84rem" }}>
+                <HeroSection />
+                <EventSection
+                    title="Tonight's Spotlight"
+                    events={tonightsSpotlightEvents}
+                />
+                <EventSection
+                    title="Hot This Week"
+                    events={hotThisWeekEvents}
+                />
+                <EventSection title="Unmissable" events={unmissableEvents} />
+                <ExclusivesSection title="Exclusives" cards={exclusivesCards} />
+                <EventSection title="For you" events={forYouEvents} />
+                <SectionWrapper
+                    title="Buzzing Destinations"
+                    cards={buzzingDestinations}
+                    cardType="destination"
+                    backgroundColor="#FFFFFF"
+                />
+                <BlazingDealsSection
+                    title="Blazing Deals"
+                    offers={blazingDealsOffers}
+                />
+                <SectionWrapper
+                    title="Discover Hidden Gems"
+                    cards={hiddenGems}
+                    cardType="hiddenGem"
+                    backgroundColor="#FFFFFF"
+                />
+                <ExploreGhanaSection
+                    title="Explore Ghana"
+                    categories={exploreGhanaCategories}
+                />
+                <EventSection title="Ghana's Top 10s" events={ghanasTop10s} />
+                <SectionWrapper
+                    title="Global Highlights"
+                    cards={globalHighlights}
+                    cardType="globalHighlight"
+                    backgroundColor="#FFFFFF"
+                />
+            </div>
+
             <Footer />
         </main>
     );
