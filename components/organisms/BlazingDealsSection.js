@@ -27,7 +27,10 @@ export default function BlazingDealsSection({ title, offers }) {
     };
 
     return (
-        <section className="py-12 px-6 bg-white">
+        <section
+            className="py-12 bg-white"
+            style={{ paddingLeft: "39px", paddingRight: "39px" }}
+        >
             <div className="max-w-[1920px] mx-auto">
                 <div className="flex flex-col lg:flex-row gap-8 items-start">
                     {/* Left Section */}

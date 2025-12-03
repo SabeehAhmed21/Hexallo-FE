@@ -30,7 +30,7 @@ export default function DestinationCard({
             </div>
 
             {/* Content */}
-            <div className="p-4">
+            <div style={{ padding: "16px" }}>
                 {/* Title */}
                 <h3 className="text-lg font-bold text-gray-900 mb-2">
                     {title}

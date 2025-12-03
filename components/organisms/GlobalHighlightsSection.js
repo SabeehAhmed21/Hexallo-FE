@@ -1,27 +1,28 @@
-import DestinationCard from "../atoms/DestinationCard";
+import GlobalHighlightCard from "../atoms/GlobalHighlightCard";
 import PropTypes from "prop-types";
 
-export default function DestinationsSection({ title, destinations }) {
-    const hasMargin = title === "Buzzing Destinations";
-
+export default function GlobalHighlightsSection({ title, highlights }) {
     return (
         <section
-            className="py-8 bg-white overflow-hidden"
+            className="py-8 overflow-hidden"
             style={{
                 paddingLeft: "39px",
                 paddingRight: "39px",
+                backgroundColor: "rgb(254, 254, 253)",
             }}
         >
             {/* Section Header */}
             <div className="mb-6">
-                <div className="flex items-center gap-2">
+                <div
+                    className="flex items-center gap-2"
+                    style={{ marginLeft: "2rem" }}
+                >
                     <h2
                         className="text-2xl font-bold"
                         style={{
                             color: "#484848",
                             fontSize: "18.37px",
                             fontWeight: 700,
-                            marginLeft: hasMargin ? "2rem" : "0",
                         }}
                     >
                         {title}
@@ -44,22 +45,23 @@ export default function DestinationsSection({ title, destinations }) {
                 </div>
             </div>
 
-            {/* Scrollable Destination Cards */}
-            <div className="overflow-x-auto pb-4 scrollbar-hide">
-                <div
-                    className="flex gap-4"
-                    style={{ marginLeft: hasMargin ? "2rem" : "0" }}
-                >
-                    {destinations.map((destination, index) => (
-                        <DestinationCard key={index} {...destination} />
-                    ))}
-                </div>
+            {/* Cards Grid */}
+            <div
+                className="flex"
+                style={{
+                    gap: "12.27px",
+                    marginLeft: "2rem",
+                }}
+            >
+                {highlights.map((highlight, index) => (
+                    <GlobalHighlightCard key={index} {...highlight} />
+                ))}
             </div>
         </section>
     );
 }
 
-DestinationsSection.propTypes = {
+GlobalHighlightsSection.propTypes = {
     title: PropTypes.string.isRequired,
-    destinations: PropTypes.arrayOf(PropTypes.object).isRequired,
+    highlights: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

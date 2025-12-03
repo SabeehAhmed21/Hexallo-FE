@@ -3,11 +3,21 @@ import PropTypes from "prop-types";
 
 export default function HiddenGemsSection({ title, gems }) {
     return (
-        <section className="py-8 px-6 bg-white">
-            <div className="max-w-[1920px] mx-auto">
-                {/* Section Header */}
-                <div className="flex items-center justify-between mb-6">
-                    <h2 className="text-2xl font-bold text-gray-900">
+        <section
+            className="py-8 bg-white overflow-hidden"
+            style={{ paddingLeft: "39px", paddingRight: "39px" }}
+        >
+            {/* Section Header */}
+            <div className="mb-6">
+                <div className="flex items-center gap-2">
+                    <h2
+                        className="text-2xl font-bold"
+                        style={{
+                            color: "#484848",
+                            fontSize: "18.37px",
+                            fontWeight: 700,
+                        }}
+                    >
                         {title}
                     </h2>
                     <button className="flex items-center text-gray-700 hover:text-hexallo-orange transition-colors">
@@ -26,9 +36,11 @@ export default function HiddenGemsSection({ title, gems }) {
                         </svg>
                     </button>
                 </div>
+            </div>
 
-                {/* Scrollable Cards */}
-                <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide -mx-6 px-6">
+            {/* Scrollable Cards */}
+            <div className="overflow-x-auto pb-4 scrollbar-hide">
+                <div className="flex gap-4 justify-center">
                     {gems.map((gem, index) => (
                         <HiddenGemCard key={index} {...gem} />
                     ))}

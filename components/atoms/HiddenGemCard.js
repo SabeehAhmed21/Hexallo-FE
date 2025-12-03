@@ -7,9 +7,15 @@ export default function HiddenGemCard({ image, title, description }) {
     const [imageError, setImageError] = useState(false);
 
     return (
-        <div className="flex-shrink-0 w-80 bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+        <div
+            className="flex-shrink-0 bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow"
+            style={{ width: "332px", height: "402px" }}
+        >
             {/* Image */}
-            <div className="relative w-full h-48 bg-gradient-to-br from-gray-300 to-gray-400 rounded-t-xl overflow-hidden">
+            <div
+                className="relative w-full bg-gradient-to-br from-gray-300 to-gray-400 rounded-t-xl overflow-hidden"
+                style={{ height: "240px" }}
+            >
                 {image && !imageError ? (
                     <img
                         src={image}
@@ -25,14 +31,33 @@ export default function HiddenGemCard({ image, title, description }) {
             </div>
 
             {/* Content */}
-            <div className="p-4">
+            <div
+                className="flex flex-col"
+                style={{ height: "162px", padding: "16px" }}
+            >
                 {/* Title */}
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                <h3
+                    style={{
+                        fontSize: "12px",
+                        fontWeight: 600,
+                        color: "#000000",
+                        marginBottom: "10px",
+                        marginTop: 0,
+                    }}
+                >
                     {title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p
+                    style={{
+                        fontSize: "11.9px",
+                        fontWeight: 400,
+                        color: "#5B5F62",
+                        margin: 0,
+                        lineHeight: "1.4",
+                    }}
+                >
                     {description}
                 </p>
             </div>

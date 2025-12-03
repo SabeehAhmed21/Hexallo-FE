@@ -12,13 +12,27 @@ export default function EventCard({
     location,
     price,
     rating,
+    cardWidth,
+    cardHeight,
 }) {
     const [imageError, setImageError] = useState(false);
 
+    const width = cardWidth || "332px";
+    const height = cardHeight || "402px";
+    const isGhanasTop10s = cardHeight === "407.64178466796875px";
+    const imageHeight = isGhanasTop10s ? "240px" : "240px";
+    const contentHeight = isGhanasTop10s ? "162px" : "162px";
+
     return (
-        <div className="flex-shrink-0 w-80 bg-amber-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+        <div
+            className="flex-shrink-0 bg-amber-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow"
+            style={{ width, height }}
+        >
             {/* Image */}
-            <div className="relative w-full h-48 bg-gradient-to-br from-gray-300 to-gray-400 rounded-t-xl overflow-hidden">
+            <div
+                className="relative w-full bg-gradient-to-br from-gray-300 to-gray-400 rounded-t-xl overflow-hidden"
+                style={{ height: imageHeight }}
+            >
                 {image && !imageError ? (
                     <img
                         src={image}
@@ -34,44 +48,151 @@ export default function EventCard({
             </div>
 
             {/* Content */}
-            <div className="p-4">
-                {/* Tag */}
-                <div className="mb-2">
-                    <span className="inline-block bg-yellow-200 text-gray-800 text-xs font-medium px-3 py-1 rounded-md">
-                        {tag}
-                    </span>
-                </div>
-
-                {/* Title */}
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
-                    {title}
-                </h3>
-
-                {/* Date */}
-                {date && <p className="text-sm text-gray-600 mb-1">{date}</p>}
-
-                {/* Time */}
-                <p className="text-sm text-gray-600 mb-1">{time}</p>
-
-                {/* Location */}
-                <p className="text-sm text-gray-600 mb-3">{location}</p>
-
-                {/* Price and Rating */}
-                <div className="flex items-center justify-between">
-                    <p className="text-base font-bold text-gray-900">{price}</p>
-                    {rating && (
-                        <div className="flex items-center gap-1">
-                            <svg
-                                className="w-4 h-4 text-yellow-400 fill-current"
-                                viewBox="0 0 20 20"
+            <div
+                className="flex flex-col"
+                style={{
+                    height: contentHeight,
+                    padding: "16px",
+                }}
+            >
+                <div>
+                    {/* Tag and Rating */}
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            marginBottom: "6.5px",
+                        }}
+                    >
+                        <span
+                            style={{
+                                display: "flex",
+                                backgroundColor: "#F7E4B6",
+                                color: "#000000",
+                                width: "61px",
+                                height: "21px",
+                                fontSize: "11px",
+                                fontWeight: 400,
+                                borderRadius: "8px",
+                                alignItems: "center",
+                                justifyContent: "center",
+                            }}
+                        >
+                            {tag}
+                        </span>
+                        {rating && (
+                            <div
+                                style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                }}
                             >
-                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                            </svg>
-                            <span className="text-sm font-bold text-gray-900">
-                                {rating}
-                            </span>
-                        </div>
+                                <svg
+                                    style={{
+                                        width: "16px",
+                                        height: "16px",
+                                        color: "#FBBF24",
+                                    }}
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                                </svg>
+                                <span
+                                    style={{
+                                        fontSize: "11.9px",
+                                        fontWeight: 400,
+                                        color: "#000000",
+                                    }}
+                                >
+                                    {rating}
+                                </span>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Title */}
+                    <h3
+                        style={{
+                            fontSize: "12px",
+                            fontWeight: 600,
+                            color: "#000000",
+                            marginBottom: "10px",
+                            marginTop: 0,
+                        }}
+                    >
+                        {title}
+                    </h3>
+
+                    {/* Date */}
+                    {date && (
+                        <p
+                            style={{
+                                fontSize: "11.9px",
+                                fontWeight: 400,
+                                color: "#5B5F62",
+                                marginBottom: 0,
+                                marginTop: 0,
+                            }}
+                        >
+                            {date}
+                        </p>
                     )}
+
+                    {/* Time */}
+                    <p
+                        style={{
+                            fontSize: "11.9px",
+                            fontWeight: 400,
+                            color: "#5B5F62",
+                            marginBottom: 0,
+                            marginTop: 0,
+                        }}
+                    >
+                        {time}
+                    </p>
+
+                    {/* Location */}
+                    <p
+                        style={{
+                            fontSize: "11.9px",
+                            fontWeight: 400,
+                            color: "#5B5F62",
+                            marginBottom: "7px",
+                            marginTop: 0,
+                        }}
+                    >
+                        {location}
+                    </p>
+
+                    {/* Price */}
+                    <div
+                        style={{
+                            marginBottom: "18px",
+                        }}
+                    >
+                        <p
+                            style={{
+                                fontSize: "11.9px",
+                                fontWeight: 400,
+                                color: "#000000",
+                                margin: 0,
+                            }}
+                        >
+                            {price.includes("USD") ? (
+                                <>
+                                    {price.substring(0, price.indexOf("USD"))}
+                                    <span style={{ fontWeight: 600 }}>
+                                        {price.substring(price.indexOf("USD"))}
+                                    </span>
+                                </>
+                            ) : (
+                                price
+                            )}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -87,4 +208,6 @@ EventCard.propTypes = {
     location: PropTypes.string.isRequired,
     price: PropTypes.string.isRequired,
     rating: PropTypes.string,
+    cardWidth: PropTypes.string,
+    cardHeight: PropTypes.string,
 };

@@ -22,32 +22,46 @@ export default function ExclusiveCard({ image, title, description, cta }) {
                 )}
             </div>
 
-            {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+            {/* Dark Overlay at Bottom */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
 
             {/* Content */}
             <div className="relative z-10 h-full flex flex-col justify-end p-8 text-white">
-                <h3 className="text-3xl font-bold mb-3">{title}</h3>
-                <p className="text-base mb-6 opacity-90">{description}</p>
-                <a
-                    href="#"
-                    className="inline-flex items-center text-white font-medium hover:text-hexallo-orange transition-colors"
-                >
-                    {cta}
-                    <svg
-                        className="w-5 h-5 ml-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                        />
-                    </svg>
-                </a>
+                <div className="relative">
+                    {/* Background box with opacity behind all content */}
+                    <div
+                        className="absolute inset-0 bg-white"
+                        style={{
+                            opacity: 0.2,
+                            borderRadius: "4px",
+                        }}
+                    ></div>
+                    <div className="relative p-4">
+                        <h3 className="text-3xl font-bold mb-3">{title}</h3>
+                        <p className="text-base mb-6 opacity-90">
+                            {description}
+                        </p>
+                        <a
+                            href="#"
+                            className="inline-flex items-center text-white font-medium hover:text-hexallo-orange transition-colors"
+                        >
+                            {cta}
+                            <svg
+                                className="w-5 h-5 ml-1"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M9 5l7 7-7 7"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     );

@@ -26,7 +26,10 @@ export default function HeroSection() {
     };
 
     return (
-        <div className="w-full px-6 py-6">
+        <div
+            className="w-full py-6"
+            style={{ paddingLeft: "39px", paddingRight: "39px" }}
+        >
             <div className="max-w-[1920px] mx-auto">
                 <div className="relative w-full h-[570px] rounded-xl overflow-hidden">
                     {/* Background Image */}
