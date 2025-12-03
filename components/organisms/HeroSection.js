@@ -30,8 +30,20 @@ export default function HeroSection() {
             className="w-full py-6"
             style={{ paddingLeft: "39px", paddingRight: "39px" }}
         >
-            <div className="max-w-[1920px] mx-auto">
-                <div className="relative w-full h-[570px] rounded-xl overflow-hidden">
+            <div
+                style={{
+                    maxWidth: "1440px",
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                }}
+            >
+                <div
+                    className="relative rounded-xl overflow-hidden mx-auto"
+                    style={{
+                        width: "1356px",
+                        height: "570px",
+                    }}
+                >
                     {/* Background Image */}
                     <div className="absolute inset-0">
                         <Image
@@ -46,20 +58,38 @@ export default function HeroSection() {
                     </div>
 
                     {/* Content */}
-                    <div className="relative z-10 h-full flex flex-col items-center justify-center px-8 md:px-24 lg:px-[413px] py-16 md:py-24 lg:py-[161px]">
-                        <div className="text-center mb-10 w-full flex flex-col items-center">
-                            <h1 className="text-[36px] font-bold text-white mb-2 drop-shadow-lg leading-tight whitespace-nowrap">
-                                Discover, Book & Enjoy What's
+                    <div className="relative z-10 h-full flex flex-col items-center justify-center">
+                        <div className="text-center mb-8 flex flex-col items-center">
+                            <h1
+                                className="font-bold text-white mb-2 drop-shadow-lg leading-tight"
+                                style={{
+                                    fontSize: "36px",
+                                    fontFamily: "Montserrat, sans-serif",
+                                }}
+                            >
+                                Discover, Book & Enjoy What&apos;s
                             </h1>
-                            <h1 className="text-[36px] font-bold text-white mb-5 drop-shadow-lg leading-tight whitespace-nowrap">
+                            <h1
+                                className="font-bold text-white mb-5 drop-shadow-lg leading-tight"
+                                style={{
+                                    fontSize: "36px",
+                                    fontFamily: "Montserrat, sans-serif",
+                                }}
+                            >
                                 Happening Around You
                             </h1>
-                            <p className="text-[14px] text-white drop-shadow-md whitespace-nowrap">
-                                From local events to world-famous experiences -
+                            <p
+                                className="text-white drop-shadow-md"
+                                style={{
+                                    fontSize: "14px",
+                                    fontFamily: "Montserrat, sans-serif",
+                                }}
+                            >
+                                From local events to world-famous experiences —
                                 all in one place.
                             </p>
                         </div>
-                        <div className="w-full max-w-5xl">
+                        <div className="flex justify-center">
                             <SearchBar />
                         </div>
                     </div>

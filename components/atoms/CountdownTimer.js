@@ -42,33 +42,137 @@ export default function CountdownTimer() {
 
     return (
         <div>
-            <p className="text-red-600 text-sm font-medium mb-3">
+            <p
+                style={{
+                    color: "#DC2626",
+                    fontSize: "14px",
+                    fontWeight: 500,
+                    marginBottom: "12px",
+                    fontFamily: "Montserrat, sans-serif",
+                }}
+            >
                 Offer ends in...
             </p>
             <div className="flex gap-2">
-                <div className="bg-white rounded-lg p-3 text-center shadow-sm">
-                    <div className="text-2xl font-bold text-gray-900">
+                <div
+                    className="bg-white rounded-lg text-center"
+                    style={{
+                        padding: "12px",
+                        boxShadow:
+                            "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+                        fontFamily: "Montserrat, sans-serif",
+                    }}
+                >
+                    <div
+                        style={{
+                            fontSize: "24px",
+                            fontWeight: 700,
+                            color: "#484848",
+                            fontFamily: "Montserrat, sans-serif",
+                        }}
+                    >
                         {formatTime(timeLeft.days)}
                     </div>
-                    <div className="text-xs text-gray-600 mt-1">Days</div>
+                    <div
+                        style={{
+                            fontSize: "12px",
+                            color: "#5B5F62",
+                            marginTop: "4px",
+                            fontFamily: "Montserrat, sans-serif",
+                        }}
+                    >
+                        Days
+                    </div>
                 </div>
-                <div className="bg-white rounded-lg p-3 text-center shadow-sm">
-                    <div className="text-2xl font-bold text-gray-900">
+                <div
+                    className="bg-white rounded-lg text-center"
+                    style={{
+                        padding: "12px",
+                        boxShadow:
+                            "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+                        fontFamily: "Montserrat, sans-serif",
+                    }}
+                >
+                    <div
+                        style={{
+                            fontSize: "24px",
+                            fontWeight: 700,
+                            color: "#484848",
+                            fontFamily: "Montserrat, sans-serif",
+                        }}
+                    >
                         {formatTime(timeLeft.hours)}
                     </div>
-                    <div className="text-xs text-gray-600 mt-1">Hr</div>
+                    <div
+                        style={{
+                            fontSize: "12px",
+                            color: "#5B5F62",
+                            marginTop: "4px",
+                            fontFamily: "Montserrat, sans-serif",
+                        }}
+                    >
+                        Hr
+                    </div>
                 </div>
-                <div className="bg-white rounded-lg p-3 text-center shadow-sm">
-                    <div className="text-2xl font-bold text-gray-900">
+                <div
+                    className="bg-white rounded-lg text-center"
+                    style={{
+                        padding: "12px",
+                        boxShadow:
+                            "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+                        fontFamily: "Montserrat, sans-serif",
+                    }}
+                >
+                    <div
+                        style={{
+                            fontSize: "24px",
+                            fontWeight: 700,
+                            color: "#484848",
+                            fontFamily: "Montserrat, sans-serif",
+                        }}
+                    >
                         {formatTime(timeLeft.minutes)}
                     </div>
-                    <div className="text-xs text-gray-600 mt-1">Mins</div>
+                    <div
+                        style={{
+                            fontSize: "12px",
+                            color: "#5B5F62",
+                            marginTop: "4px",
+                            fontFamily: "Montserrat, sans-serif",
+                        }}
+                    >
+                        Mins
+                    </div>
                 </div>
-                <div className="bg-white rounded-lg p-3 text-center shadow-sm">
-                    <div className="text-2xl font-bold text-gray-900">
+                <div
+                    className="bg-white rounded-lg text-center"
+                    style={{
+                        padding: "12px",
+                        boxShadow:
+                            "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+                        fontFamily: "Montserrat, sans-serif",
+                    }}
+                >
+                    <div
+                        style={{
+                            fontSize: "24px",
+                            fontWeight: 700,
+                            color: "#484848",
+                            fontFamily: "Montserrat, sans-serif",
+                        }}
+                    >
                         {formatTime(timeLeft.seconds)}
                     </div>
-                    <div className="text-xs text-gray-600 mt-1">Sec</div>
+                    <div
+                        style={{
+                            fontSize: "12px",
+                            color: "#5B5F62",
+                            marginTop: "4px",
+                            fontFamily: "Montserrat, sans-serif",
+                        }}
+                    >
+                        Sec
+                    </div>
                 </div>
             </div>
         </div>

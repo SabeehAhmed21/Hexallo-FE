@@ -2,9 +2,20 @@
 
 import PropTypes from "prop-types";
 
-export default function CategoryCard({ image, title, rating }) {
+export default function CategoryCard({ image, title, rating, cardWidth, cardHeight }) {
+    const styleProps = {};
+    if (cardWidth && cardHeight) {
+        styleProps.width = cardWidth;
+        styleProps.height = cardHeight;
+    } else {
+        styleProps.aspectRatio = "4/3";
+    }
+    
     return (
-        <div className="relative rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow cursor-pointer aspect-[4/3] bg-gray-600">
+        <div
+            className="relative rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow cursor-pointer bg-gray-600"
+            style={styleProps}
+        >
             {/* Rating Badge */}
             <div className="absolute top-3 left-3 bg-gray-700 rounded-md px-2 py-1 flex items-center gap-1 z-10">
                 <svg
@@ -29,4 +40,6 @@ CategoryCard.propTypes = {
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     rating: PropTypes.string.isRequired,
+    cardWidth: PropTypes.string,
+    cardHeight: PropTypes.string,
 };

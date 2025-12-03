@@ -6,9 +6,28 @@ import PropTypes from "prop-types";
 export default function ExclusiveCard({ image, title, description, cta }) {
     const [imageError, setImageError] = useState(false);
 
+    // Half width of Global Highlights card
+    const cardWidth = "160.85569763183595px";
+    const cardHeight = "387.7423095703125px";
+
     return (
-        <div className="relative flex-1 h-96 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-            {/* Background Image */}
+        <div
+            className="relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow flex-1"
+            style={{
+                width: cardWidth,
+                height: cardHeight,
+            }}
+        >
+            {/* Left Border Line */}
+            <div
+                className="absolute left-0 top-0 bottom-0 z-20"
+                style={{
+                    width: "2px",
+                    backgroundColor: "#4A90E2",
+                }}
+            ></div>
+
+            {/* Background Image - No Blur */}
             <div className="absolute inset-0">
                 {image && !imageError ? (
                     <img
@@ -22,46 +41,79 @@ export default function ExclusiveCard({ image, title, description, cta }) {
                 )}
             </div>
 
-            {/* Dark Overlay at Bottom */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
+            {/* Semi-transparent Grey Overlay at Bottom */}
+            <div
+                className="absolute bottom-0 left-0 right-0 z-10"
+                style={{
+                    height: "105px",
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                }}
+            ></div>
 
-            {/* Content */}
-            <div className="relative z-10 h-full flex flex-col justify-end p-8 text-white">
-                <div className="relative">
-                    {/* Background box with opacity behind all content */}
-                    <div
-                        className="absolute inset-0 bg-white"
-                        style={{
-                            opacity: 0.2,
-                            borderRadius: "4px",
-                        }}
-                    ></div>
-                    <div className="relative p-4">
-                        <h3 className="text-3xl font-bold mb-3">{title}</h3>
-                        <p className="text-base mb-6 opacity-90">
-                            {description}
-                        </p>
-                        <a
-                            href="#"
-                            className="inline-flex items-center text-white font-medium hover:text-hexallo-orange transition-colors"
-                        >
-                            {cta}
-                            <svg
-                                className="w-5 h-5 ml-1"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M9 5l7 7-7 7"
-                                />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
+            {/* Content - positioned at bottom left */}
+            <div
+                className="relative z-20 h-full flex flex-col justify-end text-white"
+                style={{
+                    paddingLeft: "24px",
+                    paddingRight: "24px",
+                    paddingBottom: "32.52px",
+                    fontFamily: "Montserrat, sans-serif",
+                }}
+            >
+                {/* Title */}
+                <h3
+                    style={{
+                        marginTop: "14.75px",
+                        marginBottom: 0,
+                        fontSize: "12.14px",
+                        fontWeight: 700,
+                        lineHeight: "1.3",
+                        color: "#FFFFFF",
+                        fontFamily: "Montserrat, sans-serif",
+                    }}
+                >
+                    {title}
+                </h3>
+                {/* Description */}
+                <p
+                    style={{
+                        marginTop: "5.2px",
+                        marginBottom: 0,
+                        fontSize: "11.27px",
+                        fontWeight: 600,
+                        color: "#FFFFFF",
+                        fontFamily: "Montserrat, sans-serif",
+                    }}
+                >
+                    {description}
+                </p>
+                {/* CTA with arrow */}
+                <a
+                    href="#"
+                    className="inline-flex items-center text-white hover:text-hexallo-orange transition-colors"
+                    style={{
+                        marginTop: "8.67px",
+                        marginBottom: 0,
+                        fontSize: "9.54px",
+                        fontWeight: 500,
+                        fontFamily: "Montserrat, sans-serif",
+                    }}
+                >
+                    {cta}
+                    <svg
+                        className="w-4 h-4 ml-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                        />
+                    </svg>
+                </a>
             </div>
         </div>
     );

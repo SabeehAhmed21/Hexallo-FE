@@ -217,19 +217,22 @@ export default function Home() {
             title: "New User",
             subtitle: "Offer",
             discount: "20% OFF",
-            gradient: true,
+            image: "/cards/35.jpg",
+            isActive: true,
         },
         {
             title: "Black Friday",
             subtitle: "Offers",
             discount: "20% OFF",
-            gradient: false,
+            image: "/cards/36.jpg",
+            isActive: false,
         },
         {
             title: "New User",
             subtitle: "Offer",
             discount: "20% OFF",
-            gradient: true,
+            image: "/cards/37.jpg",
+            isActive: false,
         },
     ];
 
