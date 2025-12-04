@@ -13,7 +13,7 @@ export default function ExclusiveCard({
     const [imageError, setImageError] = useState(false);
 
     return (
-        <div className="relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow w-full sm:flex-1 sm:min-w-0 sm:max-w-[calc((100%-0.5rem)/2)] md:max-w-[calc((100%-1rem)/2)] lg:max-w-[calc((100%-1rem)/2)] xl:max-w-[calc((100%-1rem)/2)] 2xl:max-w-[667px] h-[250px] sm:h-[280px] md:h-[300px] lg:h-[310px] 2xl:h-[316px]">
+        <div className="relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer hover:scale-[1.02] w-full sm:flex-1 sm:min-w-0 sm:max-w-[calc((100%-0.5rem)/2)] md:max-w-[calc((100%-1rem)/2)] lg:max-w-[calc((100%-1rem)/2)] xl:max-w-[calc((100%-1rem)/2)] 2xl:max-w-[667px] h-[250px] sm:h-[280px] md:h-[300px] lg:h-[310px] 2xl:h-[316px]">
             {/* Left Border Line */}
             <div
                 className="absolute left-0 top-0 bottom-0 z-20"

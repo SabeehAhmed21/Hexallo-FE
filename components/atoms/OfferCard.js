@@ -14,7 +14,7 @@ export default function OfferCard({
 
     return (
         <div
-            className="swiper-slide rounded-xl relative overflow-hidden"
+            className="swiper-slide rounded-xl relative overflow-hidden transition-all duration-300 cursor-pointer hover:scale-[1.02] hover:shadow-xl"
             style={{
                 width: "354px",
                 height: "381px",

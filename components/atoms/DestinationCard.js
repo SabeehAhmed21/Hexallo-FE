@@ -13,7 +13,7 @@ export default function DestinationCard({
 
     return (
         <div
-            className="flex-shrink-0 bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow"
+            className="flex-shrink-0 bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer hover:scale-[1.02]"
             style={{ width: "332px" }}
         >
             {/* Image */}

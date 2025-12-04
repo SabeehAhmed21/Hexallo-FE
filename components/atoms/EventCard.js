@@ -19,18 +19,45 @@ export default function EventCard({
     const [imageError, setImageError] = useState(false);
 
     // Sections that need 326px width
-    const sectionsWith326pxWidth = [
-        "Tonight's Spotlight",
-        "Hot This Week",
-        "Unmissable",
-        "Ghana's Top 10s",
-    ];
+    const sectionsWith326pxWidth = ["Ghana's Top 10s"];
+    const isTonightsSpotlight = sectionTitle === "Tonight's Spotlight";
+    const isHotThisWeek = sectionTitle === "Hot This Week";
+    const isUnmissable = sectionTitle === "Unmissable";
     const shouldUse326pxWidth =
         sectionTitle && sectionsWith326pxWidth.includes(sectionTitle);
-    const width = cardWidth || (shouldUse326pxWidth ? "326px" : "332px");
-    const height = cardHeight;
+    const width =
+        cardWidth ||
+        (isTonightsSpotlight
+            ? "332.9px"
+            : isHotThisWeek || isUnmissable
+            ? "332px"
+            : shouldUse326pxWidth
+            ? "326px"
+            : "332px");
+    const height =
+        cardHeight ||
+        (isTonightsSpotlight
+            ? "383.5px"
+            : isHotThisWeek
+            ? "383px"
+            : isUnmissable
+            ? "405px"
+            : undefined);
     const isGhanasTop10s = cardHeight === "407.64178466796875px";
-    const imageHeight = isGhanasTop10s ? "240px" : "240px";
+    const imageHeight = isTonightsSpotlight
+        ? "222px"
+        : isHotThisWeek
+        ? "221px"
+        : isUnmissable
+        ? "222px"
+        : isGhanasTop10s
+        ? "240px"
+        : "240px";
+    const imageWidth = isTonightsSpotlight
+        ? "318.9px"
+        : isHotThisWeek || isUnmissable
+        ? "318px"
+        : "100%";
     const contentHeight = isGhanasTop10s ? "162px" : "162px";
 
     // Sections that need the new styling
@@ -59,7 +86,7 @@ export default function EventCard({
 
     return (
         <div
-            className="flex-shrink-0 overflow-hidden transition-shadow"
+            className="flex-shrink-0 overflow-hidden transition-all duration-300 cursor-pointer hover:scale-[1.02] hover:shadow-xl"
             style={{
                 width,
                 height,
@@ -106,8 +133,13 @@ export default function EventCard({
         >
             {/* Image */}
             <div
-                className="relative w-full bg-gradient-to-br from-gray-300 to-gray-400 overflow-hidden"
+                className={`relative bg-gradient-to-br from-gray-300 to-gray-400 overflow-hidden ${
+                    isTonightsSpotlight || isHotThisWeek || isUnmissable
+                        ? ""
+                        : "w-full"
+                }`}
                 style={{
+                    width: imageWidth,
                     height: imageHeight,
                     borderRadius:
                         shouldApplyNewStyle || isForYouSection

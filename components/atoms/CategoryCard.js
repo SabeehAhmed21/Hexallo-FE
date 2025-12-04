@@ -49,7 +49,7 @@ export default function CategoryCard({
     return (
         <div
             ref={cardRef}
-            className="relative rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow cursor-pointer  flex-shrink-0 w-64 h-48 sm:w-72 sm:h-56 md:w-80 md:h-60 lg:w-96 lg:h-64 xl:w-[400px] xl:h-[280px]"
+            className="relative rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer hover:scale-[1.02] flex-shrink-0 w-64 h-48 sm:w-72 sm:h-56 md:w-80 md:h-60 lg:w-96 lg:h-64 xl:w-[400px] xl:h-[280px]"
             style={
                 !cardWidth || !cardHeight ? { aspectRatio: "4/3" } : undefined
             }

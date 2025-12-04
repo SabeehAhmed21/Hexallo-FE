@@ -14,7 +14,8 @@ export default function NavLink({ children, active = false, className = "" }) {
     return (
         <a
             href="/"
-            className={`text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] font-medium ${baseColor} hover:border-b-2 ${hoverBorder} transition-colors ${
+            onClick={(e) => e.preventDefault()}
+            className={`text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] font-medium ${baseColor} hover:border-b-2 ${hoverBorder} transition-colors cursor-pointer ${
                 active ? `border-b-2 ${activeBorder} pb-1` : ""
             } ${className}`}
         >

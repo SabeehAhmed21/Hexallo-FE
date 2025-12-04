@@ -8,7 +8,7 @@ export default function GlobalHighlightCard({ image, location, title, cta }) {
 
     return (
         <div
-            className="relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow flex-shrink-0"
+            className="relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer hover:scale-[1.02] flex-shrink-0"
             style={{
                 width: "326px",
                 height: "387.7423095703125px",

@@ -377,7 +377,7 @@ export default function Home() {
             <NavigationWrapper />
             <div
                 className="mx-auto px-4 lg:px-0"
-                style={{ maxWidth: "84rem", width: "100%" }}
+                style={{ maxWidth: "84.8rem", width: "100%" }}
             >
                 <HeroSection />
                 <EventSection

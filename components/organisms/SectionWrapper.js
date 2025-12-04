@@ -64,8 +64,9 @@ export default function SectionWrapper({
                                     gap={
                                         title === "Tonight's Spotlight" ||
                                         title === "Hot This Week" ||
-                                        title === "Unmissable" ||
-                                        title === "Ghana's Top 10s"
+                                        title === "Unmissable"
+                                            ? "10px"
+                                            : title === "Ghana's Top 10s"
                                             ? "14px"
                                             : "8px"
                                     }
