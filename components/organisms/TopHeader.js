@@ -73,9 +73,11 @@ export default function TopHeader({ isMobile = false, isInSidebar = false }) {
 
     // Desktop view
     return (
-        <div className="bg-white text-gray-700 h-[37px] border-b border-gray-200 flex items-center overflow-x-auto">
-            <div className="flex items-center w-full min-w-max">
-                <div className="flex-1 min-w-0"></div>
+        <div className="bg-white text-gray-700 h-[37px] border-b border-gray-200 relative overflow-x-auto">
+            <div
+                className="flex items-center h-full"
+                style={{ position: "absolute", left: "35rem" }}
+            >
                 <div className="flex items-center gap-1 md:gap-2 lg:gap-2.5 xl:gap-4 2xl:gap-4 text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] xl:text-[12px] 2xl:text-[12px] flex-shrink-0 whitespace-nowrap">
                     <a
                         href="/events-calendar"
@@ -121,9 +123,6 @@ export default function TopHeader({ isMobile = false, isInSidebar = false }) {
                         Create Event
                     </a>
                 </div>
-                <div
-                    style={{ width: "4rem", flexShrink: 0, minWidth: "4rem" }}
-                ></div>
             </div>
         </div>
     );
