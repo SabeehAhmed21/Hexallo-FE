@@ -20,7 +20,7 @@ export default function Dropdown({ children, icon, flag, className = "" }) {
                 />
             )}
             <span
-                className={`text-[12px] ${
+                className={`text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] ${
                     isWhite ? "text-white" : "text-gray-700"
                 }`}
             >

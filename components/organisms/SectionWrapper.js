@@ -1,5 +1,8 @@
+"use client";
+
 import SectionHeader from "../molecules/SectionHeader";
 import CardWrapper from "../molecules/CardWrapper";
+import ScrollableCardContainer from "../molecules/ScrollableCardContainer";
 import PropTypes from "prop-types";
 
 export default function SectionWrapper({
@@ -30,42 +33,25 @@ export default function SectionWrapper({
                     />
 
                     {/* Responsive Cards Container */}
-                    <div className="w-full">
+                    <div className="w-full -mx-4 sm:mx-0">
                         {/* Exclusive cards: Only 2 cards, side by side on medium+ screens */}
                         {cardType === "exclusive" ? (
-                            <>
-                                {/* Mobile: Horizontal scroll with smaller cards */}
-                                <div className="flex overflow-x-auto pb-4 scrollbar-hide md:hidden gap-2">
-                                    {cards
-                                        .slice(0, 2)
-                                        .map((cardData, index) => (
-                                            <CardWrapper
-                                                key={index}
-                                                cardType={cardType}
-                                                cardData={cardData}
-                                                index={index}
-                                            />
-                                        ))}
-                                </div>
-
-                                {/* Medium and Large: 2 cards side by side */}
-                                <div className="hidden md:flex md:gap-4 md:justify-center">
-                                    {cards
-                                        .slice(0, 2)
-                                        .map((cardData, index) => (
-                                            <CardWrapper
-                                                key={index}
-                                                cardType={cardType}
-                                                cardData={cardData}
-                                                index={index}
-                                            />
-                                        ))}
-                                </div>
-                            </>
+                            <div className="flex flex-col sm:flex-row overflow-x-auto sm:overflow-x-visible pb-4 scrollbar-hide gap-2 sm:gap-2 md:gap-4 2xl:gap-4 px-4 sm:px-0">
+                                {cards.slice(0, 2).map((cardData, index) => (
+                                    <CardWrapper
+                                        key={index}
+                                        cardType={cardType}
+                                        cardData={cardData}
+                                        index={index}
+                                    />
+                                ))}
+                            </div>
                         ) : (
-                            <>
-                                {/* Mobile: Horizontal scroll */}
-                                <div className="flex overflow-x-auto pb-4 scrollbar-hide md:hidden gap-2">
+                            <div className="px-4 lg:px-1 sm:px-4">
+                                <ScrollableCardContainer
+                                    gap="8px"
+                                    cardJustifyContent="flex-start"
+                                >
                                     {cards.map((cardData, index) => (
                                         <CardWrapper
                                             key={index}
@@ -74,20 +60,8 @@ export default function SectionWrapper({
                                             index={index}
                                         />
                                     ))}
-                                </div>
-
-                                {/* Tablet and Desktop: Grid layout */}
-                                <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                                    {cards.map((cardData, index) => (
-                                        <CardWrapper
-                                            key={index}
-                                            cardType={cardType}
-                                            cardData={cardData}
-                                            index={index}
-                                        />
-                                    ))}
-                                </div>
-                            </>
+                                </ScrollableCardContainer>
+                            </div>
                         )}
                     </div>
                 </div>

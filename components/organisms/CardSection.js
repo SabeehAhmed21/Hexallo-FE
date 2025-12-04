@@ -1,4 +1,7 @@
+"use client";
+
 import SectionHeader from "../molecules/SectionHeader";
+import ScrollableCardContainer from "../molecules/ScrollableCardContainer";
 import PropTypes from "prop-types";
 
 export default function CardSection({
@@ -54,21 +57,13 @@ export default function CardSection({
 
                     {/* Cards Container */}
                     {isScrollable ? (
-                        <div
-                            className="overflow-x-auto pb-4 scrollbar-hide"
-                            style={{ width: "100%" }}
+                        <ScrollableCardContainer
+                            gap={cardGap}
+                            cardJustifyContent={cardJustifyContent}
+                            cardMarginLeft={shouldHaveCardMargin}
                         >
-                            <div
-                                className="flex"
-                                style={{
-                                    gap: cardGap,
-                                    justifyContent: cardJustifyContent,
-                                    marginLeft: shouldHaveCardMargin,
-                                }}
-                            >
-                                {children}
-                            </div>
-                        </div>
+                            {children}
+                        </ScrollableCardContainer>
                     ) : title === "Explore Ghana" ? (
                         <div
                             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3"

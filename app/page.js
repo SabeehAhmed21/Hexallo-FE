@@ -1,6 +1,4 @@
-import TopHeader from "../components/organisms/TopHeader";
-import MainNav from "../components/organisms/MainNav";
-import SubNav from "../components/organisms/SubNav";
+import NavigationWrapper from "../components/organisms/NavigationWrapper";
 import HeroSection from "../components/organisms/HeroSection";
 import EventSection from "../components/organisms/EventSection";
 import SectionWrapper from "../components/organisms/SectionWrapper";
@@ -373,10 +371,11 @@ export default function Home() {
 
     return (
         <main className="min-h-screen bg-white">
-            <TopHeader />
-            <MainNav />
-            <SubNav />
-            <div className="mx-auto " style={{ width: "84rem" }}>
+            <NavigationWrapper />
+            <div
+                className="mx-auto px-4 lg:px-0"
+                style={{ maxWidth: "84rem", width: "100%" }}
+            >
                 <HeroSection />
                 <EventSection
                     title="Tonight's Spotlight"
@@ -395,10 +394,10 @@ export default function Home() {
                     cardType="destination"
                     backgroundColor="#FFFFFF"
                 />
-                <BlazingDealsSection
+                {/* <BlazingDealsSection
                     title="Blazing Deals"
                     offers={blazingDealsOffers}
-                />
+                /> */}
                 <SectionWrapper
                     title="Discover Hidden Gems"
                     cards={hiddenGems}

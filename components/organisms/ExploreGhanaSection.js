@@ -2,19 +2,20 @@
 
 import { useState, useEffect } from "react";
 import SectionWrapper from "./SectionWrapper";
-import CategoryCard from "../atoms/CategoryCard";
+import ScrollableCardContainer from "../molecules/ScrollableCardContainer";
+import CardWrapper from "../molecules/CardWrapper";
 import PropTypes from "prop-types";
 
 export default function ExploreGhanaSection({ title, categories }) {
-    const [isMobile, setIsMobile] = useState(false);
+    const [isLargeScreen, setIsLargeScreen] = useState(false);
 
     useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth < 640);
+        const checkScreenSize = () => {
+            setIsLargeScreen(window.innerWidth >= 1350);
         };
-        checkMobile();
-        window.addEventListener("resize", checkMobile);
-        return () => window.removeEventListener("resize", checkMobile);
+        checkScreenSize();
+        window.addEventListener("resize", checkScreenSize);
+        return () => window.removeEventListener("resize", checkScreenSize);
     }, []);
     // First row custom dimensions
     const firstRowDimensions = [
@@ -58,107 +59,98 @@ export default function ExploreGhanaSection({ title, categories }) {
                         layoutType="grid"
                     />
                 </div>
-                {/* First Row with Custom Dimensions */}
-                <div
-                    className="flex flex-wrap justify-center"
-                    style={{
-                        gap: "8px",
-                        marginBottom: "16px",
-                    }}
-                >
-                    {categories.slice(0, 3).map((category, index) => (
+                {/* Large screens (>=1350px): Original 3-row layout with custom dimensions */}
+                {isLargeScreen && (
+                    <div>
+                        {/* First Row: images 38, 39, 40 (indices 3, 4, 5) */}
                         <div
-                            key={`first-row-${category.title}-${index}`}
-                            className="w-full sm:w-auto"
+                            className="flex flex-wrap justify-center"
                             style={{
-                                width: isMobile
-                                    ? "100%"
-                                    : firstRowDimensions[index].width,
+                                gap: "8px",
+                                marginBottom: "16px",
                             }}
                         >
-                            <CategoryCard
-                                {...category}
-                                cardWidth={
-                                    isMobile
-                                        ? undefined
-                                        : firstRowDimensions[index].width
-                                }
-                                cardHeight={
-                                    isMobile
-                                        ? undefined
-                                        : firstRowDimensions[index].height
-                                }
-                            />
+                            {categories.slice(3, 6).map((category, index) => (
+                                <CardWrapper
+                                    key={`first-row-${category.title}-${index}`}
+                                    cardType="category"
+                                    cardData={{
+                                        ...category,
+                                        cardWidth:
+                                            firstRowDimensions[index].width,
+                                        cardHeight:
+                                            firstRowDimensions[index].height,
+                                    }}
+                                    index={index}
+                                />
+                            ))}
                         </div>
-                    ))}
-                </div>
-                {/* Second Row with Custom Dimensions - Only 2 images */}
-                <div
-                    className="flex flex-wrap justify-center"
-                    style={{
-                        gap: "8px",
-                        marginBottom: "16px",
-                    }}
-                >
-                    {categories.slice(3, 5).map((category, index) => (
+                        {/* Second Row: images 41, 42 (indices 6, 7) */}
                         <div
-                            key={`second-row-${category.title}-${index}`}
-                            className="w-full sm:w-auto"
+                            className="flex flex-wrap justify-center"
                             style={{
-                                width: isMobile
-                                    ? "100%"
-                                    : secondRowDimensions[index].width,
+                                gap: "8px",
+                                marginBottom: "16px",
                             }}
                         >
-                            <CategoryCard
-                                {...category}
-                                cardWidth={
-                                    isMobile
-                                        ? undefined
-                                        : secondRowDimensions[index].width
-                                }
-                                cardHeight={
-                                    isMobile
-                                        ? undefined
-                                        : secondRowDimensions[index].height
-                                }
-                            />
+                            {categories.slice(6, 8).map((category, index) => (
+                                <CardWrapper
+                                    key={`second-row-${category.title}-${index}`}
+                                    cardType="category"
+                                    cardData={{
+                                        ...category,
+                                        cardWidth:
+                                            secondRowDimensions[index].width,
+                                        cardHeight:
+                                            secondRowDimensions[index].height,
+                                    }}
+                                    index={index}
+                                />
+                            ))}
                         </div>
-                    ))}
-                </div>
-                {/* Third Row with Custom Dimensions - 3 images */}
-                <div
-                    className="flex flex-wrap justify-center"
-                    style={{
-                        gap: "8px",
-                    }}
-                >
-                    {categories.slice(5, 8).map((category, index) => (
+                        {/* Third Row: images 43, 44, 45 (indices 0, 1, 2) */}
                         <div
-                            key={`third-row-${category.title}-${index}`}
-                            className="w-full sm:w-auto"
+                            className="flex flex-wrap justify-center"
                             style={{
-                                width: isMobile
-                                    ? "100%"
-                                    : thirdRowDimensions[index].width,
+                                gap: "8px",
                             }}
                         >
-                            <CategoryCard
-                                {...category}
-                                cardWidth={
-                                    isMobile
-                                        ? undefined
-                                        : thirdRowDimensions[index].width
-                                }
-                                cardHeight={
-                                    isMobile
-                                        ? undefined
-                                        : thirdRowDimensions[index].height
-                                }
-                            />
+                            {categories.slice(0, 3).map((category, index) => (
+                                <CardWrapper
+                                    key={`third-row-${category.title}-${index}`}
+                                    cardType="category"
+                                    cardData={{
+                                        ...category,
+                                        cardWidth:
+                                            thirdRowDimensions[index].width,
+                                        cardHeight:
+                                            thirdRowDimensions[index].height,
+                                    }}
+                                    index={index}
+                                />
+                            ))}
                         </div>
-                    ))}
-                </div>
+                    </div>
+                )}
+
+                {/* Below 1350px: Horizontal scroll with arrow navigation */}
+                {!isLargeScreen && (
+                    <div className="px-4 sm:px-0">
+                        <ScrollableCardContainer
+                            gap="8px"
+                            cardJustifyContent="flex-start"
+                        >
+                            {categories.map((category, index) => (
+                                <CardWrapper
+                                    key={`category-${category.title}-${index}`}
+                                    cardType="category"
+                                    cardData={category}
+                                    index={index}
+                                />
+                            ))}
+                        </ScrollableCardContainer>
+                    </div>
+                )}
             </div>
         </section>
     );
