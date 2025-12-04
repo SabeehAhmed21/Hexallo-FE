@@ -43,60 +43,59 @@ export default function MainNav({ isMobile = false, isInSidebar = false }) {
     // Desktop view
     return (
         <nav className="bg-[#2f251d] border-b border-amber-900 h-[37px] flex items-center overflow-x-auto">
-            <div className="max-w-[1920px] mx-auto flex items-center w-full min-w-0">
-                <Logo
-                    textColor="text-white"
-                    className="ml-0 md:ml-[50px] lg:ml-[60px] xl:ml-[50px] 2xl:ml-[50px] pl-1 md:pl-2 lg:pl-3 xl:pl-4 2xl:pl-4 flex-shrink-0"
-                />
-                <div className="flex items-center ml-[70px] lg:ml-[85px] xl:ml-[128px] 2xl:ml-[128px] gap-[0.6rem] lg:gap-[0.75rem] xl:gap-[0.94rem] 2xl:gap-[0.94rem] pr-1 md:pr-2 lg:pr-3 xl:pr-4 2xl:pr-4 mr-0 md:mr-[50px] lg:mr-[60px] xl:mr-[76px] 2xl:mr-[76px] flex-nowrap min-w-0">
-                    <NavLink
-                        active
-                        className="text-white whitespace-nowrap flex-shrink-0"
-                    >
-                        Explore
-                    </NavLink>
-                    <NavLink className="text-white whitespace-nowrap flex-shrink-0">
-                        Services
-                    </NavLink>
-                    <NavLink className="text-white whitespace-nowrap flex-shrink-0">
-                        Nightlife
-                    </NavLink>
-                    <NavLink className="text-white whitespace-nowrap flex-shrink-0">
-                        Travel
-                    </NavLink>
-                    <NavLink className="text-white whitespace-nowrap flex-shrink-0">
-                        Accommodation
-                    </NavLink>
-                    <NavLink className="text-white whitespace-nowrap flex-shrink-0">
-                        Spaces
-                    </NavLink>
-                    <NavLink className="text-white whitespace-nowrap flex-shrink-0">
-                        Subscriptions
-                    </NavLink>
-                    <NavLink className="text-white whitespace-nowrap flex-shrink-0">
-                        Vouchers
-                    </NavLink>
-                    <NavLink className="text-white whitespace-nowrap flex-shrink-0">
-                        Rentals
-                    </NavLink>
-                    <NavLink className="text-white whitespace-nowrap flex-shrink-0">
-                        Voting
-                    </NavLink>
-                    <NavLink className="text-white whitespace-nowrap flex-shrink-0">
-                        Shop
-                    </NavLink>
-                    <NavLink className="text-white whitespace-nowrap flex-shrink-0">
-                        Essentials
-                    </NavLink>
-                    <NavLink className="text-white whitespace-nowrap flex-shrink-0">
-                        Healthcare
-                    </NavLink>
-                    <NavLink className="text-white whitespace-nowrap flex-shrink-0">
-                        Jobs
-                    </NavLink>
-                    <NavLink className="text-white whitespace-nowrap flex-shrink-0">
-                        Marketplace
-                    </NavLink>
+            <div className="w-full flex items-center justify-center min-w-0">
+                <div className="flex items-center flex-nowrap min-w-0 mx-auto">
+                    <Logo textColor="text-white" className="flex-shrink-0" />
+                    <div className="flex items-center ml-[109px] gap-[0.94rem] flex-nowrap min-w-0">
+                        <NavLink
+                            active
+                            className="text-white whitespace-nowrap flex-shrink-0"
+                        >
+                            Explore
+                        </NavLink>
+                        <NavLink className="text-white whitespace-nowrap flex-shrink-0">
+                            Services
+                        </NavLink>
+                        <NavLink className="text-white whitespace-nowrap flex-shrink-0">
+                            Nightlife
+                        </NavLink>
+                        <NavLink className="text-white whitespace-nowrap flex-shrink-0">
+                            Travel
+                        </NavLink>
+                        <NavLink className="text-white whitespace-nowrap flex-shrink-0">
+                            Accommodation
+                        </NavLink>
+                        <NavLink className="text-white whitespace-nowrap flex-shrink-0">
+                            Spaces
+                        </NavLink>
+                        <NavLink className="text-white whitespace-nowrap flex-shrink-0">
+                            Subscriptions
+                        </NavLink>
+                        <NavLink className="text-white whitespace-nowrap flex-shrink-0">
+                            Vouchers
+                        </NavLink>
+                        <NavLink className="text-white whitespace-nowrap flex-shrink-0">
+                            Rentals
+                        </NavLink>
+                        <NavLink className="text-white whitespace-nowrap flex-shrink-0">
+                            Voting
+                        </NavLink>
+                        <NavLink className="text-white whitespace-nowrap flex-shrink-0">
+                            Shop
+                        </NavLink>
+                        <NavLink className="text-white whitespace-nowrap flex-shrink-0">
+                            Essentials
+                        </NavLink>
+                        <NavLink className="text-white whitespace-nowrap flex-shrink-0">
+                            Healthcare
+                        </NavLink>
+                        <NavLink className="text-white whitespace-nowrap flex-shrink-0">
+                            Jobs
+                        </NavLink>
+                        <NavLink className="text-white whitespace-nowrap flex-shrink-0">
+                            Marketplace
+                        </NavLink>
+                    </div>
                 </div>
             </div>
         </nav>

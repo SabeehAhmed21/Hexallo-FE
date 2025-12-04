@@ -35,7 +35,10 @@ export default function SubNav({ isMobile = false, isInSidebar = false }) {
     return (
         <nav className="bg-[#f2f2f2] border-b border-gray-200 h-[37px] flex items-center overflow-x-auto">
             <div className="max-w-[1920px] mx-auto flex items-center justify-center w-full min-w-0">
-                <div className="flex items-center gap-[0.85rem] flex-nowrap min-w-0">
+                <div
+                    className="flex items-center gap-[0.85rem] flex-nowrap min-w-0"
+                    style={{ width: "75rem" }}
+                >
                     <NavLink active className="whitespace-nowrap flex-shrink-0">
                         Home
                     </NavLink>
