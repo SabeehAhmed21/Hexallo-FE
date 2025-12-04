@@ -9,6 +9,8 @@ export default function ScrollableCardContainer({
     gap = "8px",
     cardJustifyContent = "flex-start",
     cardMarginLeft = "0",
+    alwaysShowArrows = false,
+    showPartialLastCard = false,
 }) {
     const scrollContainerRef = useRef(null);
     const [showLeftArrow, setShowLeftArrow] = useState(false);
@@ -28,13 +30,33 @@ export default function ScrollableCardContainer({
 
             setNeedsScrolling(hasOverflow);
 
-            // Only show arrows if not on large screen and cards overlap
-            if (hasOverflow && !isLargeScreen) {
-                setShowLeftArrow(scrollLeft > 0);
-                setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 10);
+            // Show arrows based on alwaysShowArrows prop or default behavior
+            if (alwaysShowArrows || showPartialLastCard) {
+                // Always show arrows when there's overflow, regardless of screen size
+                // Show left arrow if scrolled past start, right arrow if not at end
+                if (hasOverflow) {
+                    setShowLeftArrow(scrollLeft > 5);
+                    const canScrollRight =
+                        scrollLeft < scrollWidth - clientWidth - 5;
+                    setShowRightArrow(canScrollRight);
+                    // Always show right arrow initially if at start and there's overflow
+                    if (scrollLeft === 0 || scrollLeft < 10) {
+                        setShowRightArrow(true);
+                    }
+                } else {
+                    // If no overflow detected yet, still try to show arrows
+                    // This handles cases where content hasn't fully rendered
+                    setShowLeftArrow(scrollLeft > 5);
+                    // For showPartialLastCard, always show right arrow to indicate more content
+                    setShowRightArrow(true);
+                }
             } else {
-                setShowLeftArrow(false);
-                setShowRightArrow(false);
+                // Default behavior: Only show arrows if not on large screen and cards overlap
+                const shouldShow = hasOverflow && !isLargeScreen;
+                setShowLeftArrow(shouldShow && scrollLeft > 0);
+                setShowRightArrow(
+                    shouldShow && scrollLeft < scrollWidth - clientWidth - 10
+                );
             }
         }
     };
@@ -65,7 +87,13 @@ export default function ScrollableCardContainer({
                 window.removeEventListener("resize", checkScrollButtons);
             };
         }
-    }, [children, isLargeScreen]);
+    }, [
+        children,
+        isLargeScreen,
+        alwaysShowArrows,
+        showPartialLastCard,
+        checkScrollButtons,
+    ]);
 
     const scroll = (direction) => {
         if (scrollContainerRef.current) {
@@ -98,29 +126,51 @@ export default function ScrollableCardContainer({
 
     return (
         <div className="relative w-full">
-            {/* Left Arrow - Only show when cards overlap and NOT on large screens */}
-            {!isLargeScreen && needsScrolling && showLeftArrow && (
-                <button
-                    onClick={() => scroll("left")}
-                    className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 transition-all hover:scale-110"
-                    aria-label="Scroll left"
-                >
-                    <FiChevronLeft className="w-6 h-6 text-gray-700" />
-                </button>
-            )}
+            {/* Left Arrow - Always visible when alwaysShowArrows or showPartialLastCard is true */}
+            {alwaysShowArrows || showPartialLastCard
+                ? showLeftArrow && (
+                      <button
+                          onClick={() => scroll("left")}
+                          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 transition-all hover:scale-110"
+                          aria-label="Scroll left"
+                      >
+                          <FiChevronLeft className="w-6 h-6 text-gray-700" />
+                      </button>
+                  )
+                : !isLargeScreen &&
+                  needsScrolling &&
+                  showLeftArrow && (
+                      <button
+                          onClick={() => scroll("left")}
+                          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 transition-all hover:scale-110"
+                          aria-label="Scroll left"
+                      >
+                          <FiChevronLeft className="w-6 h-6 text-gray-700" />
+                      </button>
+                  )}
 
-            {/* Container - Scrollable below 1440px, visible above 1440px */}
+            {/* Container - Scrollable when alwaysShowArrows is true or below 1440px */}
             <div
                 ref={scrollContainerRef}
                 className={`pb-4 ${
-                    !isLargeScreen
+                    alwaysShowArrows || !isLargeScreen || showPartialLastCard
                         ? "overflow-x-auto scrollbar-hide"
                         : "overflow-x-visible"
                 }`}
                 style={{
                     width: "100%",
-                    scrollBehavior: !isLargeScreen ? "smooth" : "auto",
-                    WebkitOverflowScrolling: !isLargeScreen ? "touch" : "auto",
+                    scrollBehavior:
+                        alwaysShowArrows ||
+                        !isLargeScreen ||
+                        showPartialLastCard
+                            ? "smooth"
+                            : "auto",
+                    WebkitOverflowScrolling:
+                        alwaysShowArrows ||
+                        !isLargeScreen ||
+                        showPartialLastCard
+                            ? "touch"
+                            : "auto",
                 }}
                 onScroll={checkScrollButtons}
             >
@@ -128,29 +178,48 @@ export default function ScrollableCardContainer({
                     className="flex flex-nowrap"
                     style={{
                         gap: gap,
-                        justifyContent: isLargeScreen
-                            ? "flex-start"
-                            : cardJustifyContent,
-                        marginLeft: cardMarginLeft,
-                        minWidth: !isLargeScreen ? "max-content" : "auto",
-                        paddingRight: !isLargeScreen ? "1rem" : "0",
-                        width: isLargeScreen ? "100%" : "auto",
+                        justifyContent: "flex-start",
+                        marginLeft: cardMarginLeft || "0",
+                        marginRight: "0",
+                        minWidth:
+                            alwaysShowArrows || !isLargeScreen
+                                ? "max-content"
+                                : "auto",
+                        paddingRight: showPartialLastCard
+                            ? "0"
+                            : alwaysShowArrows || !isLargeScreen
+                            ? "1rem"
+                            : "0",
+                        paddingLeft: "0",
+                        width: "100%",
                     }}
                 >
                     {children}
                 </div>
             </div>
 
-            {/* Right Arrow - Only show when cards overlap and NOT on large screens */}
-            {!isLargeScreen && needsScrolling && showRightArrow && (
-                <button
-                    onClick={() => scroll("right")}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 transition-all hover:scale-110"
-                    aria-label="Scroll right"
-                >
-                    <FiChevronRight className="w-6 h-6 text-gray-700" />
-                </button>
-            )}
+            {/* Right Arrow - Always visible when alwaysShowArrows or showPartialLastCard is true */}
+            {alwaysShowArrows || showPartialLastCard
+                ? showRightArrow && (
+                      <button
+                          onClick={() => scroll("right")}
+                          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 transition-all hover:scale-110"
+                          aria-label="Scroll right"
+                      >
+                          <FiChevronRight className="w-6 h-6 text-gray-700" />
+                      </button>
+                  )
+                : !isLargeScreen &&
+                  needsScrolling &&
+                  showRightArrow && (
+                      <button
+                          onClick={() => scroll("right")}
+                          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 transition-all hover:scale-110"
+                          aria-label="Scroll right"
+                      >
+                          <FiChevronRight className="w-6 h-6 text-gray-700" />
+                      </button>
+                  )}
         </div>
     );
 }
@@ -160,4 +229,6 @@ ScrollableCardContainer.propTypes = {
     gap: PropTypes.string,
     cardJustifyContent: PropTypes.string,
     cardMarginLeft: PropTypes.string,
+    alwaysShowArrows: PropTypes.bool,
+    showPartialLastCard: PropTypes.bool,
 };

@@ -3,9 +3,8 @@ import SearchInput from "../atoms/SearchInput";
 export default function SearchBar() {
     return (
         <div
-            className="flex items-center bg-white shadow-sm overflow-hidden"
+            className="flex items-center bg-white shadow-sm overflow-hidden w-full sm:w-auto"
             style={{
-                width: "100%",
                 maxWidth: "612.81px",
                 height: "37px",
                 fontFamily: "Montserrat, sans-serif",
@@ -19,16 +18,17 @@ export default function SearchBar() {
                 gap: "10px",
             }}
         >
-            {/* Search any event - Width: 228px, Padding: 8.5px top/bottom, 24px left, 72px right */}
+            {/* Search any event - Responsive width and padding */}
             <div
-                className="h-full flex items-center"
+                className="h-full flex items-center flex-1 sm:flex-none"
                 style={{
-                    width: "228px",
+                    width: "auto",
+                    minWidth: "120px",
                     height: "34px",
                     paddingTop: "8.5px",
                     paddingBottom: "8.5px",
-                    paddingLeft: "24px",
-                    paddingRight: "72px",
+                    paddingLeft: "12px",
+                    paddingRight: "8px",
                 }}
             >
                 <SearchInput
@@ -39,15 +39,15 @@ export default function SearchBar() {
                         padding: "0",
                         height: "auto",
                         color: "#6A6A6A",
-                        fontSize: "12px",
+                        fontSize: "11px",
                         fontWeight: 400,
                         fontFamily: "Inter, sans-serif",
                     }}
                 />
             </div>
-            {/* Where - Width: 167px, Padding: 7px top/bottom, 24px left/right */}
+            {/* Where - Responsive width and padding */}
             <div
-                className="h-full flex items-center"
+                className="h-full items-center hidden sm:flex"
                 style={{
                     width: "167px",
                     height: "34px",
@@ -71,9 +71,9 @@ export default function SearchBar() {
                     }}
                 />
             </div>
-            {/* When - Width: 165px, Padding: 7px top/bottom, 24px left/right */}
+            {/* When - Responsive width and padding */}
             <div
-                className="h-full flex items-center"
+                className="h-full items-center hidden sm:flex"
                 style={{
                     width: "165px",
                     height: "34px",
@@ -98,11 +98,10 @@ export default function SearchBar() {
                 />
             </div>
             <button
-                className="bg-[#ae6f28] text-white hover:bg-opacity-90 transition-colors flex items-center justify-center rounded-xl"
+                className="bg-[#ae6f28] text-white hover:bg-opacity-90 transition-colors flex items-center justify-center rounded-xl flex-shrink-0"
                 style={{
                     width: "35.81px",
                     height: "29.81px",
-                    flexShrink: 0,
                 }}
             >
                 <svg

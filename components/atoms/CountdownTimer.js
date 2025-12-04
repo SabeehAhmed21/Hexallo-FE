@@ -44,131 +44,185 @@ export default function CountdownTimer() {
         <div>
             <p
                 style={{
-                    color: "#DC2626",
-                    fontSize: "14px",
-                    fontWeight: 500,
-                    marginBottom: "12px",
                     fontFamily: "Montserrat, sans-serif",
+                    fontSize: "12px",
+                    fontWeight: 500,
+                    lineHeight: "100%",
+                    letterSpacing: "0%",
+                    color: "#D00E28",
+                    marginBottom: "27px",
                 }}
             >
                 Offer ends in...
             </p>
-            <div className="flex gap-2">
-                <div
-                    className="bg-white rounded-lg text-center"
-                    style={{
-                        padding: "12px",
-                        boxShadow:
-                            "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
-                        fontFamily: "Montserrat, sans-serif",
-                    }}
-                >
+            <div className="flex" style={{ gap: "30px" }}>
+                <div className="flex flex-col items-center">
                     <div
+                        className="bg-white text-center flex items-center justify-center"
                         style={{
-                            fontSize: "24px",
-                            fontWeight: 700,
-                            color: "#484848",
+                            width: "71px",
+                            height: "70px",
+                            borderRadius: "10px",
+                            paddingTop: "18px",
+                            paddingRight: "14px",
+                            paddingBottom: "18px",
+                            paddingLeft: "14px",
+                            backgroundColor: "#FFFFFF",
+                            boxShadow: "0px 4px 14px 1px rgba(0, 0, 0, 0.16)",
                             fontFamily: "Montserrat, sans-serif",
                         }}
                     >
-                        {formatTime(timeLeft.days)}
+                        <div
+                            style={{
+                                fontSize: "24px",
+                                fontWeight: 700,
+                                color: "#484848",
+                                fontFamily: "Montserrat, sans-serif",
+                                lineHeight: "1",
+                            }}
+                        >
+                            {formatTime(timeLeft.days)}
+                        </div>
                     </div>
                     <div
                         style={{
-                            fontSize: "12px",
-                            color: "#5B5F62",
-                            marginTop: "4px",
                             fontFamily: "Montserrat, sans-serif",
+                            fontSize: "12px",
+                            fontWeight: 400,
+                            lineHeight: "120%",
+                            letterSpacing: "0%",
+                            color: "#484848",
+                            textAlign: "center",
+                            marginTop: "8px",
                         }}
                     >
                         Days
                     </div>
                 </div>
-                <div
-                    className="bg-white rounded-lg text-center"
-                    style={{
-                        padding: "12px",
-                        boxShadow:
-                            "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
-                        fontFamily: "Montserrat, sans-serif",
-                    }}
-                >
+                <div className="flex flex-col items-center">
                     <div
+                        className="bg-white text-center flex items-center justify-center"
                         style={{
-                            fontSize: "24px",
-                            fontWeight: 700,
-                            color: "#484848",
+                            width: "71px",
+                            height: "70px",
+                            borderRadius: "10px",
+                            paddingTop: "18px",
+                            paddingRight: "14px",
+                            paddingBottom: "18px",
+                            paddingLeft: "14px",
+                            backgroundColor: "#FFFFFF",
+                            boxShadow: "0px 4px 14px 1px rgba(0, 0, 0, 0.16)",
                             fontFamily: "Montserrat, sans-serif",
                         }}
                     >
-                        {formatTime(timeLeft.hours)}
+                        <div
+                            style={{
+                                fontSize: "24px",
+                                fontWeight: 700,
+                                color: "#484848",
+                                fontFamily: "Montserrat, sans-serif",
+                                lineHeight: "1",
+                            }}
+                        >
+                            {formatTime(timeLeft.hours)}
+                        </div>
                     </div>
                     <div
                         style={{
-                            fontSize: "12px",
-                            color: "#5B5F62",
-                            marginTop: "4px",
                             fontFamily: "Montserrat, sans-serif",
+                            fontSize: "12px",
+                            fontWeight: 400,
+                            lineHeight: "120%",
+                            letterSpacing: "0%",
+                            color: "#484848",
+                            textAlign: "center",
+                            marginTop: "8px",
                         }}
                     >
                         Hr
                     </div>
                 </div>
-                <div
-                    className="bg-white rounded-lg text-center"
-                    style={{
-                        padding: "12px",
-                        boxShadow:
-                            "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
-                        fontFamily: "Montserrat, sans-serif",
-                    }}
-                >
+                <div className="flex flex-col items-center">
                     <div
+                        className="bg-white text-center flex items-center justify-center"
                         style={{
-                            fontSize: "24px",
-                            fontWeight: 700,
-                            color: "#484848",
+                            width: "71px",
+                            height: "70px",
+                            borderRadius: "10px",
+                            paddingTop: "18px",
+                            paddingRight: "14px",
+                            paddingBottom: "18px",
+                            paddingLeft: "14px",
+                            backgroundColor: "#FFFFFF",
+                            boxShadow: "0px 4px 14px 1px rgba(0, 0, 0, 0.16)",
                             fontFamily: "Montserrat, sans-serif",
                         }}
                     >
-                        {formatTime(timeLeft.minutes)}
+                        <div
+                            style={{
+                                fontSize: "24px",
+                                fontWeight: 700,
+                                color: "#484848",
+                                fontFamily: "Montserrat, sans-serif",
+                                lineHeight: "1",
+                            }}
+                        >
+                            {formatTime(timeLeft.minutes)}
+                        </div>
                     </div>
                     <div
                         style={{
-                            fontSize: "12px",
-                            color: "#5B5F62",
-                            marginTop: "4px",
                             fontFamily: "Montserrat, sans-serif",
+                            fontSize: "12px",
+                            fontWeight: 400,
+                            lineHeight: "120%",
+                            letterSpacing: "0%",
+                            color: "#484848",
+                            textAlign: "center",
+                            marginTop: "8px",
                         }}
                     >
                         Mins
                     </div>
                 </div>
-                <div
-                    className="bg-white rounded-lg text-center"
-                    style={{
-                        padding: "12px",
-                        boxShadow:
-                            "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
-                        fontFamily: "Montserrat, sans-serif",
-                    }}
-                >
+                <div className="flex flex-col items-center">
                     <div
+                        className="bg-white text-center flex items-center justify-center"
                         style={{
-                            fontSize: "24px",
-                            fontWeight: 700,
-                            color: "#484848",
+                            width: "71px",
+                            height: "70px",
+                            borderRadius: "10px",
+                            paddingTop: "18px",
+                            paddingRight: "14px",
+                            paddingBottom: "18px",
+                            paddingLeft: "14px",
+                            backgroundColor: "#FFFFFF",
+                            boxShadow: "0px 4px 14px 1px rgba(0, 0, 0, 0.16)",
                             fontFamily: "Montserrat, sans-serif",
                         }}
                     >
-                        {formatTime(timeLeft.seconds)}
+                        <div
+                            style={{
+                                fontSize: "24px",
+                                fontWeight: 700,
+                                color: "#484848",
+                                fontFamily: "Montserrat, sans-serif",
+                                lineHeight: "1",
+                            }}
+                        >
+                            {formatTime(timeLeft.seconds)}
+                        </div>
                     </div>
                     <div
                         style={{
-                            fontSize: "12px",
-                            color: "#5B5F62",
-                            marginTop: "4px",
                             fontFamily: "Montserrat, sans-serif",
+                            fontSize: "12px",
+                            fontWeight: 400,
+                            lineHeight: "120%",
+                            letterSpacing: "0%",
+                            color: "#484848",
+                            textAlign: "center",
+                            marginTop: "8px",
                         }}
                     >
                         Sec

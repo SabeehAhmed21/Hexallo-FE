@@ -411,7 +411,7 @@ export default function Home() {
             />
             {/* Ghana's Top 10s with full background */}
             <section
-                className="w-full"
+                className="w-full lg:px-2"
                 style={{
                     backgroundColor: "#FAF8ED",
                     paddingTop: "2rem",
@@ -433,7 +433,7 @@ export default function Home() {
                 </div>
             </section>
             <div
-                className="mx-auto px-4 lg:px-0"
+                className="mx-auto px-4 lg:px-2"
                 style={{ maxWidth: "84rem", width: "100%" }}
             >
                 <SectionWrapper

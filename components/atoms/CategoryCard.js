@@ -9,6 +9,8 @@ export default function CategoryCard({
     rating,
     cardWidth,
     cardHeight,
+    isFirstRowFirstImage = false,
+    isFirstRowSecondImage = false,
 }) {
     const [imageError, setImageError] = useState(false);
     const cardRef = useRef(null);
@@ -61,14 +63,119 @@ export default function CategoryCard({
             </div>
 
             {/* Rating Badge */}
-            <div className="absolute top-3 left-3 bg-gray-700 rounded-md px-2 py-1 z-10">
-                <span className="text-xs font-bold text-white">{rating}</span>
-            </div>
+            {isFirstRowFirstImage ? (
+                <div
+                    className="absolute z-10"
+                    style={{
+                        width: "48.83px",
+                        height: "21.37px",
+                        top: "21.37px",
+                        left: "27.9px",
+                        borderRadius: "11.02px",
+                        backgroundColor: "#FFFFFF",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                    }}
+                >
+                    <span
+                        style={{
+                            fontFamily: "Inter, sans-serif",
+                            fontSize: "12.86px",
+                            fontWeight: 500,
+                            lineHeight: "12.86px",
+                            letterSpacing: "0%",
+                            color: "#2D3134",
+                        }}
+                    >
+                        {rating}
+                    </span>
+                </div>
+            ) : isFirstRowSecondImage ? (
+                <div
+                    className="absolute z-10"
+                    style={{
+                        width: "51.47px",
+                        height: "18.08px",
+                        top: "16.87px",
+                        left: "24px",
+                        borderRadius: "12.91px",
+                        backgroundColor: "#2D3134",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                    }}
+                >
+                    <span
+                        style={{
+                            fontFamily: "Inter, sans-serif",
+                            fontSize: "12.86px",
+                            fontWeight: 500,
+                            lineHeight: "12.86px",
+                            letterSpacing: "0%",
+                            color: "#FFFFFF",
+                        }}
+                    >
+                        {rating}
+                    </span>
+                </div>
+            ) : (
+                <div
+                    className="absolute top-3 left-3 z-10"
+                    style={{
+                        width: "48.83px",
+                        height: "21.37px",
+                        borderRadius: "11.02px",
+                        backgroundColor: "#FFFFFF",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                    }}
+                >
+                    <span
+                        style={{
+                            fontFamily: "Inter, sans-serif",
+                            fontSize: "12.86px",
+                            fontWeight: 500,
+                            lineHeight: "12.86px",
+                            letterSpacing: "0%",
+                            color: "#2D3134",
+                        }}
+                    >
+                        {rating}
+                    </span>
+                </div>
+            )}
 
-            {/* Text Content */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4 z-10">
-                <h3 className="text-xl font-bold mb-1 text-center">{title}</h3>
-                <p className="text-base font-medium">Explore</p>
+            {/* Text Content - Bottom Left */}
+            <div className="absolute inset-0 flex flex-col items-start justify-end text-white p-4 z-10">
+                <h3
+                    style={{
+                        fontFamily: "Montserrat, sans-serif",
+                        fontSize: "12.05px",
+                        fontWeight: 600,
+                        lineHeight: "18.37px",
+                        letterSpacing: "0%",
+                        color: "#FFFFFF",
+                        marginBottom: "4px",
+                        marginTop: 0,
+                    }}
+                >
+                    {title}
+                </h3>
+                <p
+                    style={{
+                        fontFamily: "Montserrat, sans-serif",
+                        fontSize: "10.33px",
+                        fontWeight: 400,
+                        lineHeight: "12.86px",
+                        letterSpacing: "0%",
+                        color: "#FFFFFF",
+                        margin: 0,
+                    }}
+                >
+                    Explore
+                </p>
             </div>
         </div>
     );
@@ -80,4 +187,6 @@ CategoryCard.propTypes = {
     rating: PropTypes.string.isRequired,
     cardWidth: PropTypes.string,
     cardHeight: PropTypes.string,
+    isFirstRowFirstImage: PropTypes.bool,
+    isFirstRowSecondImage: PropTypes.bool,
 };

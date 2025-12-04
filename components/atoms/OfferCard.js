@@ -52,7 +52,7 @@ export default function OfferCard({
                     fontFamily: "Montserrat, sans-serif",
                 }}
             >
-                <div>
+                <div className="flex flex-col items-center">
                     <h3
                         style={{
                             fontSize: "18px",
@@ -60,6 +60,7 @@ export default function OfferCard({
                             color: "#484848",
                             marginBottom: "4px",
                             fontFamily: "Montserrat, sans-serif",
+                            textAlign: "center",
                         }}
                     >
                         {title}
@@ -71,13 +72,17 @@ export default function OfferCard({
                                 fontWeight: 700,
                                 color: "#484848",
                                 fontFamily: "Montserrat, sans-serif",
+                                textAlign: "center",
                             }}
                         >
                             {subtitle}
                         </p>
                     )}
                 </div>
-                <div style={{ marginTop: "auto" }}>
+                <div
+                    className="flex flex-col items-center"
+                    style={{ marginTop: "auto" }}
+                >
                     <p
                         style={{
                             fontSize: "12px",
@@ -86,6 +91,7 @@ export default function OfferCard({
                             marginBottom: "4px",
                             fontWeight: 500,
                             fontFamily: "Montserrat, sans-serif",
+                            textAlign: "center",
                         }}
                     >
                         UP TO
@@ -96,6 +102,7 @@ export default function OfferCard({
                             fontWeight: 700,
                             color: "#484848",
                             fontFamily: "Montserrat, sans-serif",
+                            textAlign: "center",
                         }}
                     >
                         {discount}

@@ -48,7 +48,7 @@ export default function MainNav({ isMobile = false, isInSidebar = false }) {
                     textColor="text-white"
                     className="ml-0 md:ml-[50px] lg:ml-[60px] xl:ml-[68px] 2xl:ml-[75px] flex-shrink-0"
                 />
-                <div className="flex items-center ml-[70px] lg:ml-[85px] xl:ml-[97px] 2xl:ml-[109px] gap-[0.6rem] lg:gap-[0.75rem] xl:gap-[0.85rem] 2xl:gap-[0.94rem] mr-0 md:mr-2 lg:mr-4 xl:mr-6 2xl:mr-8 flex-nowrap min-w-0">
+                <div className="flex items-center ml-[70px] lg:ml-[85px] xl:ml-[145px] 2xl:ml-[109px] gap-[0.6rem] lg:gap-[0.75rem] xl:gap-[0.85rem] 2xl:gap-[0.94rem] mr-0 md:mr-2 lg:mr-4 xl:mr-6 2xl:mr-8 flex-nowrap min-w-0">
                     <NavLink
                         active
                         className="text-white whitespace-nowrap flex-shrink-0"

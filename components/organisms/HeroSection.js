@@ -26,7 +26,7 @@ export default function HeroSection() {
     };
 
     return (
-        <div className="w-full py-6">
+        <div className="w-full py-6 ">
             <div>
                 <div
                     className="relative rounded-xl overflow-hidden mx-auto"
@@ -61,7 +61,7 @@ export default function HeroSection() {
                                 all in one place.
                             </p>
                         </div>
-                        <div className="flex justify-center">
+                        <div className="flex justify-center w-full px-4 sm:px-0">
                             <SearchBar />
                         </div>
                     </div>

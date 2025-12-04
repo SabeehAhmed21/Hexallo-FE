@@ -13,6 +13,8 @@ export default function SectionWrapper({
     showArrow = true,
     removePadding = false,
     renderAsDiv = false,
+    alwaysShowArrows = false,
+    showPartialLastCard = false,
 }) {
     const Container = renderAsDiv ? "div" : "section";
     return (
@@ -26,24 +28,27 @@ export default function SectionWrapper({
                       }
             }
         >
-            <div>
+            <div className="w-full">
                 <div
                     style={{
                         display: "flex",
                         flexDirection: "column",
+                        width: "100%",
                     }}
                 >
-                    <SectionHeader
-                        title={title}
-                        alignLeft={false}
-                        showArrow={showArrow}
-                    />
+                    <div className="w-full">
+                        <SectionHeader
+                            title={title}
+                            alignLeft={false}
+                            showArrow={showArrow}
+                        />
+                    </div>
 
                     {/* Responsive Cards Container */}
-                    <div className="w-full -mx-4 sm:mx-0">
+                    <div className="w-full">
                         {/* Exclusive cards: Only 2 cards, side by side on medium+ screens */}
                         {cardType === "exclusive" ? (
-                            <div className="flex flex-col sm:flex-row overflow-x-auto sm:overflow-x-visible pb-4 scrollbar-hide gap-2 sm:gap-2 md:gap-4 2xl:gap-4 px-4 sm:px-0">
+                            <div className="flex flex-col sm:flex-row overflow-x-auto sm:overflow-x-visible pb-4 scrollbar-hide gap-2 sm:gap-2 md:gap-4 2xl:gap-4">
                                 {cards.slice(0, 2).map((cardData, index) => (
                                     <CardWrapper
                                         key={index}
@@ -54,7 +59,7 @@ export default function SectionWrapper({
                                 ))}
                             </div>
                         ) : (
-                            <div className="px-4 lg:px-1 sm:px-4">
+                            <div>
                                 <ScrollableCardContainer
                                     gap={
                                         title === "Tonight's Spotlight" ||
@@ -65,6 +70,8 @@ export default function SectionWrapper({
                                             : "8px"
                                     }
                                     cardJustifyContent="flex-start"
+                                    alwaysShowArrows={alwaysShowArrows}
+                                    showPartialLastCard={showPartialLastCard}
                                 >
                                     {cards.map((cardData, index) => (
                                         <CardWrapper
@@ -95,9 +102,12 @@ SectionWrapper.propTypes = {
         "exclusive",
         "category",
         "globalHighlight",
+        "offer",
     ]).isRequired,
     backgroundColor: PropTypes.string,
     showArrow: PropTypes.bool,
     removePadding: PropTypes.bool,
     renderAsDiv: PropTypes.bool,
+    alwaysShowArrows: PropTypes.bool,
+    showPartialLastCard: PropTypes.bool,
 };

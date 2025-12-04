@@ -18,7 +18,16 @@ export default function EventCard({
 }) {
     const [imageError, setImageError] = useState(false);
 
-    const width = cardWidth || "332px";
+    // Sections that need 326px width
+    const sectionsWith326pxWidth = [
+        "Tonight's Spotlight",
+        "Hot This Week",
+        "Unmissable",
+        "Ghana's Top 10s",
+    ];
+    const shouldUse326pxWidth =
+        sectionTitle && sectionsWith326pxWidth.includes(sectionTitle);
+    const width = cardWidth || (shouldUse326pxWidth ? "326px" : "332px");
     const height = cardHeight;
     const isGhanasTop10s = cardHeight === "407.64178466796875px";
     const imageHeight = isGhanasTop10s ? "240px" : "240px";

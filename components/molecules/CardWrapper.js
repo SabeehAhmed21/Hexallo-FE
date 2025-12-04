@@ -4,6 +4,7 @@ import HiddenGemCard from "../atoms/HiddenGemCard";
 import ExclusiveCard from "../atoms/ExclusiveCard";
 import CategoryCard from "../atoms/CategoryCard";
 import GlobalHighlightCard from "../atoms/GlobalHighlightCard";
+import OfferCard from "../atoms/OfferCard";
 import PropTypes from "prop-types";
 
 export default function CardWrapper({
@@ -20,6 +21,7 @@ export default function CardWrapper({
         exclusive: ExclusiveCard,
         category: CategoryCard,
         globalHighlight: GlobalHighlightCard,
+        offer: OfferCard,
     };
 
     const CardComponent = cardComponents[cardType];
@@ -27,6 +29,20 @@ export default function CardWrapper({
     if (!CardComponent) {
         console.warn(`Unknown card type: ${cardType}`);
         return null;
+    }
+
+    // For offer cards, wrap in a div with fixed width
+    if (cardType === "offer") {
+        return (
+            <div key={index} style={{ width: "354px", flexShrink: 0 }}>
+                <CardComponent
+                    {...cardData}
+                    {...props}
+                    index={index}
+                    sectionTitle={sectionTitle}
+                />
+            </div>
+        );
     }
 
     return (
@@ -48,6 +64,7 @@ CardWrapper.propTypes = {
         "exclusive",
         "category",
         "globalHighlight",
+        "offer",
     ]).isRequired,
     cardData: PropTypes.object.isRequired,
     index: PropTypes.number.isRequired,
