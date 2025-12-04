@@ -39,13 +39,19 @@ export default function ExploreGhanaSection({ title, categories }) {
 
     return (
         <section
+            className="w-full"
             style={{
                 backgroundColor: "#FAF8ED",
                 marginTop: "37.33px",
                 marginBottom: "24.4px",
+                paddingTop: "2rem",
+                paddingBottom: "2rem",
             }}
         >
-            <div>
+            <div
+                className="w-full"
+                style={{ maxWidth: "84rem", width: "100%", margin: "auto" }}
+            >
                 <div style={{ marginBottom: 0 }}>
                     <SectionWrapper
                         title={title}
@@ -57,11 +63,15 @@ export default function ExploreGhanaSection({ title, categories }) {
                         cardMarginLeft="0"
                         isScrollable={false}
                         layoutType="grid"
+                        removePadding={true}
                     />
                 </div>
                 {/* Large screens (>=1350px): Original 3-row layout with custom dimensions */}
                 {isLargeScreen && (
-                    <div>
+                    <div
+                        className="w-full"
+                        style={{ backgroundColor: "#FAF8ED" }}
+                    >
                         {/* First Row: images 38, 39, 40 (indices 3, 4, 5) */}
                         <div
                             className="flex flex-wrap justify-center"
@@ -135,7 +145,10 @@ export default function ExploreGhanaSection({ title, categories }) {
 
                 {/* Below 1350px: Horizontal scroll with arrow navigation */}
                 {!isLargeScreen && (
-                    <div className="px-4 sm:px-0">
+                    <div
+                        className="px-4 sm:px-0 w-full"
+                        style={{ backgroundColor: "#FAF8ED" }}
+                    >
                         <ScrollableCardContainer
                             gap="8px"
                             cardJustifyContent="flex-start"

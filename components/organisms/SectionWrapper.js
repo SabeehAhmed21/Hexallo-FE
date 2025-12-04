@@ -11,10 +11,11 @@ export default function SectionWrapper({
     cardType = "event",
     backgroundColor = "#FFFFFF",
     showArrow = true,
+    removePadding = false,
 }) {
     return (
         <section
-            className="py-8"
+            className={removePadding ? "" : "py-8"}
             style={{
                 backgroundColor: backgroundColor,
             }}

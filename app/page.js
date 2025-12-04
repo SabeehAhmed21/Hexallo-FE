@@ -404,10 +404,15 @@ export default function Home() {
                     cardType="hiddenGem"
                     backgroundColor="#FFFFFF"
                 />
-                <ExploreGhanaSection
-                    title="Explore Ghana"
-                    categories={exploreGhanaCategories}
-                />
+            </div>
+            <ExploreGhanaSection
+                title="Explore Ghana"
+                categories={exploreGhanaCategories}
+            />
+            <div
+                className="mx-auto px-4 lg:px-0"
+                style={{ maxWidth: "84rem", width: "100%" }}
+            >
                 <EventSection title="Ghana's Top 10s" events={ghanasTop10s} />
                 <SectionWrapper
                     title="Global Highlights"
