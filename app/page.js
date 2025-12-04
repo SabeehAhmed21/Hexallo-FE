@@ -409,11 +409,33 @@ export default function Home() {
                 title="Explore Ghana"
                 categories={exploreGhanaCategories}
             />
+            {/* Ghana's Top 10s with full background */}
+            <section
+                className="w-full"
+                style={{
+                    backgroundColor: "#FAF8ED",
+                    paddingTop: "2rem",
+                    paddingBottom: "2rem",
+                }}
+            >
+                <div
+                    className="mx-auto px-4 lg:px-0"
+                    style={{ maxWidth: "84rem", width: "100%" }}
+                >
+                    <SectionWrapper
+                        title="Ghana's Top 10s"
+                        cards={ghanasTop10s}
+                        cardType="event"
+                        backgroundColor="#FAF8ED"
+                        renderAsDiv={true}
+                        removePadding={true}
+                    />
+                </div>
+            </section>
             <div
                 className="mx-auto px-4 lg:px-0"
                 style={{ maxWidth: "84rem", width: "100%" }}
             >
-                <EventSection title="Ghana's Top 10s" events={ghanasTop10s} />
                 <SectionWrapper
                     title="Global Highlights"
                     cards={globalHighlights}

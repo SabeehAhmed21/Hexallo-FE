@@ -17,10 +17,7 @@ export default function HiddenGemCard({ image, title, description }) {
             {/* Left Border Line */}
             <div
                 className="absolute left-0 top-0 bottom-0 z-20"
-                style={{
-                    width: "2px",
-                    backgroundColor: "#4A90E2",
-                }}
+                style={{}}
             ></div>
 
             {/* Background Image - No Blur */}

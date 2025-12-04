@@ -12,13 +12,19 @@ export default function SectionWrapper({
     backgroundColor = "#FFFFFF",
     showArrow = true,
     removePadding = false,
+    renderAsDiv = false,
 }) {
+    const Container = renderAsDiv ? "div" : "section";
     return (
-        <section
+        <Container
             className={removePadding ? "" : "py-8"}
-            style={{
-                backgroundColor: backgroundColor,
-            }}
+            style={
+                renderAsDiv
+                    ? {}
+                    : {
+                          backgroundColor: backgroundColor,
+                      }
+            }
         >
             <div>
                 <div
@@ -50,7 +56,14 @@ export default function SectionWrapper({
                         ) : (
                             <div className="px-4 lg:px-1 sm:px-4">
                                 <ScrollableCardContainer
-                                    gap="8px"
+                                    gap={
+                                        title === "Tonight's Spotlight" ||
+                                        title === "Hot This Week" ||
+                                        title === "Unmissable" ||
+                                        title === "Ghana's Top 10s"
+                                            ? "14px"
+                                            : "8px"
+                                    }
                                     cardJustifyContent="flex-start"
                                 >
                                     {cards.map((cardData, index) => (
@@ -59,6 +72,7 @@ export default function SectionWrapper({
                                             cardType={cardType}
                                             cardData={cardData}
                                             index={index}
+                                            sectionTitle={title}
                                         />
                                     ))}
                                 </ScrollableCardContainer>
@@ -67,7 +81,7 @@ export default function SectionWrapper({
                     </div>
                 </div>
             </div>
-        </section>
+        </Container>
     );
 }
 
@@ -84,4 +98,6 @@ SectionWrapper.propTypes = {
     ]).isRequired,
     backgroundColor: PropTypes.string,
     showArrow: PropTypes.bool,
+    removePadding: PropTypes.bool,
+    renderAsDiv: PropTypes.bool,
 };

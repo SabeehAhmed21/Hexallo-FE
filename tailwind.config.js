@@ -14,6 +14,10 @@ module.exports = {
                 "hexallo-business": "#ae6f28",
                 "hexallo-nav": "#efc96d",
             },
+            fontFamily: {
+                montserrat: ["Montserrat", "sans-serif"],
+                inter: ["Inter", "sans-serif"],
+            },
         },
     },
     plugins: [],

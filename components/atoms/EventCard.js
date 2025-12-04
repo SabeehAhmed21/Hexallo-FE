@@ -14,24 +14,97 @@ export default function EventCard({
     rating,
     cardWidth,
     cardHeight,
+    sectionTitle,
 }) {
     const [imageError, setImageError] = useState(false);
 
     const width = cardWidth || "332px";
-    const height = cardHeight || "402px";
+    const height = cardHeight;
     const isGhanasTop10s = cardHeight === "407.64178466796875px";
     const imageHeight = isGhanasTop10s ? "240px" : "240px";
     const contentHeight = isGhanasTop10s ? "162px" : "162px";
 
+    // Sections that need the new styling
+    const sectionsWithNewStyle = [
+        "Tonight's Spotlight",
+        "Hot This Week",
+        "Unmissable",
+        "Ghana's Top 10s",
+    ];
+    // Sections that need the shadow
+    const sectionsWithShadow = [
+        "Tonight's Spotlight",
+        "Hot This Week",
+        "Unmissable",
+    ];
+    // "For you" section styling
+    const isForYouSection = sectionTitle === "For you";
+    // Sections with 2px left/right padding
+    const sectionsWith2pxPadding = ["Unmissable", "Ghana's Top 10s"];
+    const shouldApply2pxPadding =
+        sectionTitle && sectionsWith2pxPadding.includes(sectionTitle);
+    const shouldApplyNewStyle =
+        sectionTitle && sectionsWithNewStyle.includes(sectionTitle);
+    const shouldApplyShadow =
+        sectionTitle && sectionsWithShadow.includes(sectionTitle);
+
     return (
         <div
-            className="flex-shrink-0 bg-amber-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow"
-            style={{ width, height }}
+            className="flex-shrink-0 overflow-hidden transition-shadow"
+            style={{
+                width,
+                height,
+                backgroundColor: isForYouSection
+                    ? "#FFFFFF"
+                    : shouldApplyNewStyle
+                    ? "#FAF8ED"
+                    : "#FEF3C7",
+                borderRadius:
+                    shouldApplyNewStyle || isForYouSection ? "16px" : "12px",
+                border: isForYouSection
+                    ? "1px solid rgba(0, 0, 0, 0.03)"
+                    : shouldApplyNewStyle
+                    ? "2px solid #FFFFFF"
+                    : "none",
+                paddingTop: isForYouSection
+                    ? "7px"
+                    : shouldApplyNewStyle
+                    ? "8px"
+                    : "0",
+                paddingRight: isForYouSection
+                    ? "7px"
+                    : shouldApplyNewStyle
+                    ? "7px"
+                    : "0",
+                paddingBottom: isForYouSection
+                    ? "7px"
+                    : shouldApplyNewStyle
+                    ? "11px"
+                    : "0",
+                paddingLeft: isForYouSection
+                    ? "7px"
+                    : shouldApplyNewStyle
+                    ? "7px"
+                    : "0",
+                boxShadow: isForYouSection
+                    ? "4px 4px 26px 0px rgba(0, 0, 0, 0.1)"
+                    : shouldApplyShadow
+                    ? "0px 24px 90px 0px rgba(192, 188, 161, 0.22)"
+                    : shouldApplyNewStyle
+                    ? "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+                    : "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+            }}
         >
             {/* Image */}
             <div
-                className="relative w-full bg-gradient-to-br from-gray-300 to-gray-400 rounded-t-xl overflow-hidden"
-                style={{ height: imageHeight }}
+                className="relative w-full bg-gradient-to-br from-gray-300 to-gray-400 overflow-hidden"
+                style={{
+                    height: imageHeight,
+                    borderRadius:
+                        shouldApplyNewStyle || isForYouSection
+                            ? "16px 16px 16px 16px"
+                            : "12px 12px 0 0",
+                }}
             >
                 {image && !imageError ? (
                     <img
@@ -52,7 +125,13 @@ export default function EventCard({
                 className="flex flex-col"
                 style={{
                     height: contentHeight,
-                    padding: "16px",
+                    padding: shouldApply2pxPadding
+                        ? "15px 2px 11px 2px"
+                        : isForYouSection
+                        ? "15px 12px 11px 12px"
+                        : shouldApplyNewStyle
+                        ? "15px 12px 11px 12px"
+                        : "16px",
                 }}
             >
                 <div>
@@ -81,7 +160,7 @@ export default function EventCard({
                         >
                             {tag}
                         </span>
-                        {rating && (
+                        {rating && !isForYouSection && (
                             <div
                                 style={{
                                     display: "flex",
@@ -119,11 +198,45 @@ export default function EventCard({
                             fontSize: "12px",
                             fontWeight: 600,
                             color: "#000000",
-                            marginBottom: "10px",
+                            marginBottom: isForYouSection ? "12px" : "10px",
                             marginTop: 0,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent:
+                                isForYouSection && rating
+                                    ? "space-between"
+                                    : "flex-start",
                         }}
                     >
-                        {title}
+                        <span>{title}</span>
+                        {isForYouSection && rating && (
+                            <span
+                                style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                }}
+                            >
+                                <img
+                                    src="/icons/star.svg"
+                                    alt="Star"
+                                    style={{
+                                        width: "9px",
+                                        height: "9px",
+                                    }}
+                                />
+                                <span
+                                    style={{
+                                        fontFamily: "Inter, sans-serif",
+                                        fontSize: "9px",
+                                        fontWeight: 500,
+                                        color: "#5B5F62",
+                                    }}
+                                >
+                                    {rating}
+                                </span>
+                            </span>
+                        )}
                     </h3>
 
                     {/* Date */}
@@ -210,4 +323,5 @@ EventCard.propTypes = {
     rating: PropTypes.string,
     cardWidth: PropTypes.string,
     cardHeight: PropTypes.string,
+    sectionTitle: PropTypes.string,
 };

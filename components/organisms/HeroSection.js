@@ -50,31 +50,13 @@ export default function HeroSection() {
                     {/* Content */}
                     <div className="relative z-10 h-full flex flex-col items-center justify-center">
                         <div className="text-center mb-8 flex flex-col items-center">
-                            <h1
-                                className="font-bold text-white mb-2 drop-shadow-lg leading-tight"
-                                style={{
-                                    fontSize: "36px",
-                                    fontFamily: "Montserrat, sans-serif",
-                                }}
-                            >
+                            <h1 className="font-bold text-white mb-2 drop-shadow-lg leading-tight text-[36px] font-montserrat">
                                 Discover, Book & Enjoy What&apos;s
                             </h1>
-                            <h1
-                                className="font-bold text-white mb-5 drop-shadow-lg leading-tight"
-                                style={{
-                                    fontSize: "36px",
-                                    fontFamily: "Montserrat, sans-serif",
-                                }}
-                            >
+                            <h1 className="font-bold text-white mb-5 drop-shadow-lg leading-tight text-[36px] font-montserrat">
                                 Happening Around You
                             </h1>
-                            <p
-                                className="text-white drop-shadow-md"
-                                style={{
-                                    fontSize: "14px",
-                                    fontFamily: "Montserrat, sans-serif",
-                                }}
-                            >
+                            <p className="text-white drop-shadow-md text-sm font-montserrat">
                                 From local events to world-famous experiences —
                                 all in one place.
                             </p>

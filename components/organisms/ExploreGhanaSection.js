@@ -43,7 +43,6 @@ export default function ExploreGhanaSection({ title, categories }) {
             style={{
                 backgroundColor: "#FAF8ED",
                 marginTop: "37.33px",
-                marginBottom: "24.4px",
                 paddingTop: "2rem",
                 paddingBottom: "2rem",
             }}

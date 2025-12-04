@@ -6,7 +6,13 @@ import CategoryCard from "../atoms/CategoryCard";
 import GlobalHighlightCard from "../atoms/GlobalHighlightCard";
 import PropTypes from "prop-types";
 
-export default function CardWrapper({ cardType, cardData, index, ...props }) {
+export default function CardWrapper({
+    cardType,
+    cardData,
+    index,
+    sectionTitle,
+    ...props
+}) {
     const cardComponents = {
         event: EventCard,
         destination: DestinationCard,
@@ -23,7 +29,15 @@ export default function CardWrapper({ cardType, cardData, index, ...props }) {
         return null;
     }
 
-    return <CardComponent key={index} {...cardData} {...props} index={index} />;
+    return (
+        <CardComponent
+            key={index}
+            {...cardData}
+            {...props}
+            index={index}
+            sectionTitle={sectionTitle}
+        />
+    );
 }
 
 CardWrapper.propTypes = {
@@ -37,4 +51,5 @@ CardWrapper.propTypes = {
     ]).isRequired,
     cardData: PropTypes.object.isRequired,
     index: PropTypes.number.isRequired,
+    sectionTitle: PropTypes.string,
 };

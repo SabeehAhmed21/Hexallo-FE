@@ -45,19 +45,14 @@ export default function SectionHeader({
                 </h2>
                 {showArrow && (
                     <button className="flex items-center text-gray-700 hover:text-hexallo-orange transition-colors">
-                        <svg
-                            className="w-6 h-6"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M9 5l7 7-7 7"
-                            />
-                        </svg>
+                        <img
+                            src="/icons/arrow right.svg"
+                            alt="Arrow right"
+                            style={{
+                                width: "12px",
+                                height: "13px",
+                            }}
+                        />
                     </button>
                 )}
             </div>
