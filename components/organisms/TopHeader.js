@@ -73,9 +73,9 @@ export default function TopHeader({ isMobile = false, isInSidebar = false }) {
 
     // Desktop view
     return (
-        <div className="bg-white text-gray-700 h-[37px] px-1 md:px-2 lg:px-3 xl:px-3.5 2xl:px-4 border-b border-gray-200 flex items-center justify-end overflow-x-auto">
-            <div className="max-w-[1920px] w-full flex items-center justify-end min-w-0">
-                <div className="flex items-center gap-1 md:gap-2 lg:gap-2.5 xl:gap-3.5 2xl:gap-4 text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] 2xl:text-[12px] mr-0 md:mr-[50px] lg:mr-[60px] xl:mr-[68px] 2xl:mr-[76px] flex-nowrap min-w-0">
+        <div className="bg-white text-gray-700 h-[37px] border-b border-gray-200 flex items-center overflow-x-auto">
+            <div className="max-w-[1920px] mx-auto w-full flex items-center justify-end min-w-0">
+                <div className="flex items-center gap-1 md:gap-2 lg:gap-2.5 xl:gap-4 2xl:gap-4 text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] xl:text-[12px] 2xl:text-[12px] pr-1 md:pr-2 lg:pr-3 xl:pr-4 2xl:pr-4 mr-0 md:mr-[50px] lg:mr-[60px] xl:mr-[76px] 2xl:mr-[76px] flex-nowrap min-w-0">
                     <a
                         href="/events-calendar"
                         className="hover:text-hexallo-business transition-colors"
