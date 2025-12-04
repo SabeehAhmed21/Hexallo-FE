@@ -259,43 +259,46 @@ export default function Home() {
     ];
 
     const exploreGhanaCategories = [
+        // First Row: images 38, 39, 40
         {
-            image: "/cards/27.jpg",
+            image: "/cards/38.jpg",
             title: "Events",
             rating: "3.5",
         },
         {
-            image: "/cards/28.jpg",
+            image: "/cards/39.png",
             title: "Activities",
             rating: "3.5",
         },
         {
-            image: "/cards/29.jpg",
+            image: "/cards/40.jpg",
             title: "Restaurants",
             rating: "3.5",
         },
+        // Second Row: images 41, 42
         {
-            image: "/cards/30.jpg",
+            image: "/cards/41.png",
             title: "Tours",
             rating: "3.5",
         },
         {
-            image: "/cards/31.jpg",
+            image: "/cards/42.png",
             title: "Services",
             rating: "3.5",
         },
+        // Third Row: images 43, 44, 45
         {
-            image: "/cards/32.jpg",
+            image: "/cards/43.png",
             title: "Destinations",
             rating: "3.5",
         },
         {
-            image: "/cards/33.jpg",
+            image: "/cards/44.jpg",
             title: "Places",
             rating: "3.5",
         },
         {
-            image: "/cards/34.jpg",
+            image: "/cards/45.jpg",
             title: "Accommodations",
             rating: "3.5",
         },

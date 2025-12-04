@@ -71,7 +71,7 @@ export default function ExploreGhanaSection({ title, categories }) {
                         className="w-full"
                         style={{ backgroundColor: "#FAF8ED" }}
                     >
-                        {/* First Row: images 38, 39, 40 (indices 3, 4, 5) */}
+                        {/* First Row: Events, Activities, Restaurants (indices 0, 1, 2) */}
                         <div
                             className="flex flex-wrap justify-center"
                             style={{
@@ -79,7 +79,7 @@ export default function ExploreGhanaSection({ title, categories }) {
                                 marginBottom: "16px",
                             }}
                         >
-                            {categories.slice(3, 6).map((category, index) => (
+                            {categories.slice(0, 3).map((category, index) => (
                                 <CardWrapper
                                     key={`first-row-${category.title}-${index}`}
                                     cardType="category"
@@ -97,7 +97,7 @@ export default function ExploreGhanaSection({ title, categories }) {
                                 />
                             ))}
                         </div>
-                        {/* Second Row: images 41, 42 (indices 6, 7) */}
+                        {/* Second Row: Tours, Services (indices 3, 4) */}
                         <div
                             className="flex flex-wrap justify-center"
                             style={{
@@ -105,7 +105,7 @@ export default function ExploreGhanaSection({ title, categories }) {
                                 marginBottom: "16px",
                             }}
                         >
-                            {categories.slice(6, 8).map((category, index) => (
+                            {categories.slice(3, 5).map((category, index) => (
                                 <CardWrapper
                                     key={`second-row-${category.title}-${index}`}
                                     cardType="category"
@@ -116,19 +116,20 @@ export default function ExploreGhanaSection({ title, categories }) {
                                         cardHeight:
                                             secondRowDimensions[index].height,
                                         isSecondRowFirstImage: index === 0,
+                                        isSecondRowSecondImage: index === 1,
                                     }}
                                     index={index}
                                 />
                             ))}
                         </div>
-                        {/* Third Row: images 43, 44, 45 (indices 0, 1, 2) */}
+                        {/* Third Row: Destinations, Places, Accommodations (indices 5, 6, 7) */}
                         <div
                             className="flex flex-wrap justify-center"
                             style={{
                                 gap: "8px",
                             }}
                         >
-                            {categories.slice(0, 3).map((category, index) => (
+                            {categories.slice(5, 8).map((category, index) => (
                                 <CardWrapper
                                     key={`third-row-${category.title}-${index}`}
                                     cardType="category"
@@ -138,6 +139,9 @@ export default function ExploreGhanaSection({ title, categories }) {
                                             thirdRowDimensions[index].width,
                                         cardHeight:
                                             thirdRowDimensions[index].height,
+                                        isThirdRowFirstImage: index === 0,
+                                        isThirdRowSecondImage: index === 1,
+                                        isThirdRowThirdImage: index === 2,
                                     }}
                                     index={index}
                                 />

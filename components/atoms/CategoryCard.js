@@ -13,6 +13,10 @@ export default function CategoryCard({
     isFirstRowSecondImage = false,
     isFirstRowThirdImage = false,
     isSecondRowFirstImage = false,
+    isSecondRowSecondImage = false,
+    isThirdRowFirstImage = false,
+    isThirdRowSecondImage = false,
+    isThirdRowThirdImage = false,
 }) {
     const [imageError, setImageError] = useState(false);
     const cardRef = useRef(null);
@@ -22,14 +26,14 @@ export default function CategoryCard({
             if (cardRef.current) {
                 if (window.innerWidth >= 1350) {
                     // 1350px and above: use custom dimensions if provided
-    if (cardWidth && cardHeight) {
+                    if (cardWidth && cardHeight) {
                         cardRef.current.style.width = cardWidth;
                         cardRef.current.style.height = cardHeight;
                     } else {
                         cardRef.current.style.width = "";
                         cardRef.current.style.height = "";
                     }
-    } else {
+                } else {
                     // Below 1350px: use responsive classes, clear inline styles
                     cardRef.current.style.width = "";
                     cardRef.current.style.height = "";
@@ -41,22 +45,29 @@ export default function CategoryCard({
         window.addEventListener("resize", updateStyles);
         return () => window.removeEventListener("resize", updateStyles);
     }, [cardWidth, cardHeight]);
-    
+
     return (
         <div
             ref={cardRef}
-            className="relative rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow cursor-pointer bg-gray-600 flex-shrink-0 w-64 h-48 sm:w-72 sm:h-56 md:w-80 md:h-60 lg:w-96 lg:h-64 xl:w-[400px] xl:h-[280px]"
+            className="relative rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow cursor-pointer  flex-shrink-0 w-64 h-48 sm:w-72 sm:h-56 md:w-80 md:h-60 lg:w-96 lg:h-64 xl:w-[400px] xl:h-[280px]"
             style={
                 !cardWidth || !cardHeight ? { aspectRatio: "4/3" } : undefined
             }
         >
             {/* Background Image */}
-            <div className="absolute inset-0">
+            <div className="absolute inset-0 overflow-hidden">
                 {image && !imageError ? (
                     <img
                         src={image}
                         alt={title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full"
+                        style={{
+                            objectFit: "cover",
+                            objectPosition: "center",
+                            width: "100%",
+                            height: "100%",
+                            display: "block",
+                        }}
                         onError={() => setImageError(true)}
                     />
                 ) : (
@@ -161,6 +172,93 @@ export default function CategoryCard({
                         backgroundColor: "#FFFFFF",
                         display: "flex",
                         alignItems: "center",
+                        justifyContent: "flex-start",
+                        paddingInline: "13px",
+                    }}
+                >
+                    <span
+                        style={{
+                            fontFamily: "Inter, sans-serif",
+                            fontSize: "12.86px",
+                            fontWeight: 500,
+                            lineHeight: "12.86px",
+                            letterSpacing: "0%",
+                            color: "#2D3134",
+                        }}
+                    >
+                        {rating}
+                    </span>
+                </div>
+            ) : isSecondRowSecondImage ? (
+                <div
+                    className="absolute z-10"
+                    style={{
+                        width: "58.4px",
+                        height: "21.37px",
+                        top: "20.33px",
+                        left: "24px",
+                        borderRadius: "16.27px",
+                        backgroundColor: "#2D3134",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "flex-start",
+                        paddingInline: "13px",
+                    }}
+                >
+                    <span
+                        style={{
+                            fontFamily: "Inter, sans-serif",
+                            fontSize: "12.86px",
+                            fontWeight: 500,
+                            lineHeight: "12.86px",
+                            letterSpacing: "0%",
+                            color: "#FFFFFF",
+                        }}
+                    >
+                        {rating}
+                    </span>
+                </div>
+            ) : isThirdRowFirstImage ? (
+                <div
+                    className="absolute z-10"
+                    style={{
+                        width: "62.24px",
+                        height: "21.57px",
+                        top: "14.38px",
+                        left: "35.57px",
+                        borderRadius: "16.27px",
+                        backgroundColor: "#FFFFFF",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "flex-start",
+                        paddingInline: "13px",
+                    }}
+                >
+                    <span
+                        style={{
+                            fontFamily: "Inter, sans-serif",
+                            fontSize: "12.86px",
+                            fontWeight: 500,
+                            lineHeight: "12.86px",
+                            letterSpacing: "0%",
+                            color: "#2D3134",
+                        }}
+                    >
+                        {rating}
+                    </span>
+                </div>
+            ) : isThirdRowSecondImage ? (
+                <div
+                    className="absolute z-10"
+                    style={{
+                        width: "49.16px",
+                        height: "22.5px",
+                        top: "22.5px",
+                        left: "24px",
+                        borderRadius: "11.02px",
+                        backgroundColor: "#FFFFFF",
+                        display: "flex",
+                        alignItems: "center",
                         justifyContent: "center",
                     }}
                 >
@@ -172,6 +270,35 @@ export default function CategoryCard({
                             lineHeight: "12.86px",
                             letterSpacing: "0%",
                             color: "#2D3134",
+                        }}
+                    >
+                        {rating}
+                    </span>
+                </div>
+            ) : isThirdRowThirdImage ? (
+                <div
+                    className="absolute z-10"
+                    style={{
+                        width: "52.82px",
+                        height: "22.5px",
+                        top: "22.52px",
+                        left: "24px",
+                        borderRadius: "11.02px",
+                        backgroundColor: "#2D3134",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "flex-start",
+                        paddingInline: "13px",
+                    }}
+                >
+                    <span
+                        style={{
+                            fontFamily: "Inter, sans-serif",
+                            fontSize: "12.86px",
+                            fontWeight: 500,
+                            lineHeight: "12.86px",
+                            letterSpacing: "0%",
+                            color: "#FFFFFF",
                         }}
                     >
                         {rating}
@@ -202,7 +329,7 @@ export default function CategoryCard({
                     >
                         {rating}
                     </span>
-            </div>
+                </div>
             )}
 
             {/* Text Content - Bottom Left */}
@@ -249,4 +376,8 @@ CategoryCard.propTypes = {
     isFirstRowSecondImage: PropTypes.bool,
     isFirstRowThirdImage: PropTypes.bool,
     isSecondRowFirstImage: PropTypes.bool,
+    isSecondRowSecondImage: PropTypes.bool,
+    isThirdRowFirstImage: PropTypes.bool,
+    isThirdRowSecondImage: PropTypes.bool,
+    isThirdRowThirdImage: PropTypes.bool,
 };
