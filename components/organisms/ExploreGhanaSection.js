@@ -91,6 +91,7 @@ export default function ExploreGhanaSection({ title, categories }) {
                                             firstRowDimensions[index].height,
                                         isFirstRowFirstImage: index === 0,
                                         isFirstRowSecondImage: index === 1,
+                                        isFirstRowThirdImage: index === 2,
                                     }}
                                     index={index}
                                 />
@@ -114,6 +115,7 @@ export default function ExploreGhanaSection({ title, categories }) {
                                             secondRowDimensions[index].width,
                                         cardHeight:
                                             secondRowDimensions[index].height,
+                                        isSecondRowFirstImage: index === 0,
                                     }}
                                     index={index}
                                 />

@@ -11,6 +11,8 @@ export default function CategoryCard({
     cardHeight,
     isFirstRowFirstImage = false,
     isFirstRowSecondImage = false,
+    isFirstRowThirdImage = false,
+    isSecondRowFirstImage = false,
 }) {
     const [imageError, setImageError] = useState(false);
     const cardRef = useRef(null);
@@ -20,14 +22,14 @@ export default function CategoryCard({
             if (cardRef.current) {
                 if (window.innerWidth >= 1350) {
                     // 1350px and above: use custom dimensions if provided
-                    if (cardWidth && cardHeight) {
+    if (cardWidth && cardHeight) {
                         cardRef.current.style.width = cardWidth;
                         cardRef.current.style.height = cardHeight;
                     } else {
                         cardRef.current.style.width = "";
                         cardRef.current.style.height = "";
                     }
-                } else {
+    } else {
                     // Below 1350px: use responsive classes, clear inline styles
                     cardRef.current.style.width = "";
                     cardRef.current.style.height = "";
@@ -39,7 +41,7 @@ export default function CategoryCard({
         window.addEventListener("resize", updateStyles);
         return () => window.removeEventListener("resize", updateStyles);
     }, [cardWidth, cardHeight]);
-
+    
     return (
         <div
             ref={cardRef}
@@ -119,6 +121,62 @@ export default function CategoryCard({
                         {rating}
                     </span>
                 </div>
+            ) : isFirstRowThirdImage ? (
+                <div
+                    className="absolute z-10"
+                    style={{
+                        width: "47.48px",
+                        height: "21.37px",
+                        top: "21.37px",
+                        left: "24px",
+                        borderRadius: "11.02px",
+                        backgroundColor: "#2D3134",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                    }}
+                >
+                    <span
+                        style={{
+                            fontFamily: "Inter, sans-serif",
+                            fontSize: "12.86px",
+                            fontWeight: 500,
+                            lineHeight: "12.86px",
+                            letterSpacing: "0%",
+                            color: "#FFFFFF",
+                        }}
+                    >
+                        {rating}
+                    </span>
+                </div>
+            ) : isSecondRowFirstImage ? (
+                <div
+                    className="absolute z-10"
+                    style={{
+                        width: "62.95px",
+                        height: "22.46px",
+                        top: "21.35px",
+                        left: "22.37px",
+                        borderRadius: "11.02px",
+                        backgroundColor: "#FFFFFF",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                    }}
+                >
+                    <span
+                        style={{
+                            fontFamily: "Inter, sans-serif",
+                            fontSize: "12.86px",
+                            fontWeight: 500,
+                            lineHeight: "12.86px",
+                            letterSpacing: "0%",
+                            color: "#2D3134",
+                        }}
+                    >
+                        {rating}
+                    </span>
+                </div>
             ) : (
                 <div
                     className="absolute top-3 left-3 z-10"
@@ -144,7 +202,7 @@ export default function CategoryCard({
                     >
                         {rating}
                     </span>
-                </div>
+            </div>
             )}
 
             {/* Text Content - Bottom Left */}
@@ -189,4 +247,6 @@ CategoryCard.propTypes = {
     cardHeight: PropTypes.string,
     isFirstRowFirstImage: PropTypes.bool,
     isFirstRowSecondImage: PropTypes.bool,
+    isFirstRowThirdImage: PropTypes.bool,
+    isSecondRowFirstImage: PropTypes.bool,
 };
