@@ -12,7 +12,10 @@ export default function DestinationCard({
     const [imageError, setImageError] = useState(false);
 
     return (
-        <div className="flex-shrink-0 w-80 bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+        <div
+            className="flex-shrink-0 bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow"
+            style={{ width: "332px" }}
+        >
             {/* Image */}
             <div className="relative w-full h-56 bg-gradient-to-br from-gray-300 to-gray-400 rounded-t-xl overflow-hidden">
                 {image && !imageError ? (

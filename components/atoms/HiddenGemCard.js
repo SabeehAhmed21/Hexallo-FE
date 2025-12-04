@@ -10,7 +10,7 @@ export default function HiddenGemCard({ image, title, description }) {
         <div
             className="relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow flex-shrink-0"
             style={{
-                width: "321.7113952636719px",
+                width: "332px",
                 height: "361.3606872558594px",
             }}
         >
