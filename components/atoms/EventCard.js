@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 export default function EventCard({
@@ -17,6 +17,17 @@ export default function EventCard({
     sectionTitle,
 }) {
     const [imageError, setImageError] = useState(false);
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+    useEffect(() => {
+        const checkScreenSize = () => {
+            setIsSmallScreen(window.innerWidth < 1440);
+        };
+
+        checkScreenSize();
+        window.addEventListener("resize", checkScreenSize);
+        return () => window.removeEventListener("resize", checkScreenSize);
+    }, []);
 
     // Sections that need 326px width
     const sectionsWith326pxWidth = ["Ghana's Top 10s"];
@@ -124,9 +135,9 @@ export default function EventCard({
                     : "0",
                 boxShadow: isForYouSection
                     ? "4px 4px 26px 0px rgba(0, 0, 0, 0.1)"
-                    : shouldApplyShadow
+                    : shouldApplyShadow && !isSmallScreen
                     ? "0px 24px 90px 0px rgba(192, 188, 161, 0.22)"
-                    : shouldApplyNewStyle
+                    : shouldApplyNewStyle || shouldApplyShadow
                     ? "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
                     : "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
             }}

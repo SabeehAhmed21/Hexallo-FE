@@ -18,6 +18,9 @@ module.exports = {
                 montserrat: ["Montserrat", "sans-serif"],
                 inter: ["Inter", "sans-serif"],
             },
+            maxWidth: {
+                "screen-xl": "1324px",
+            },
         },
     },
     plugins: [],

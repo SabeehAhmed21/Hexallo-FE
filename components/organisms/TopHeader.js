@@ -74,11 +74,8 @@ export default function TopHeader({ isMobile = false, isInSidebar = false }) {
     // Desktop view
     return (
         <div className="bg-white text-gray-700 h-[37px] border-b border-gray-200 relative overflow-x-auto">
-            <div
-                className="flex items-center h-full"
-                style={{ position: "absolute", left: "35rem" }}
-            >
-                <div className="flex items-center gap-1 md:gap-2 lg:gap-2.5 xl:gap-4 2xl:gap-4 text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] xl:text-[12px] 2xl:text-[12px] flex-shrink-0 whitespace-nowrap">
+            <div className="w-full max-w-screen-xl mx-auto h-full flex items-center justify-end pl-4 pr-0">
+                <div className="flex items-center gap-0.5 sm:gap-1 md:gap-1.5 lg:gap-2 xl:gap-2.5 2xl:gap-4 text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] xl:text-[12px] 2xl:text-[12px] flex-shrink-0 whitespace-nowrap">
                     <a
                         href="/events-calendar"
                         className="hover:text-hexallo-business transition-colors"

@@ -16,7 +16,7 @@ export default function Footer() {
             }}
         >
             <div
-                className="w-full flex flex-col md:flex-row items-center md:items-center justify-between gap-4 md:gap-0 px-4 md:px-8 lg:px-12 xl:px-16 2xl:pl-[84px] 2xl:pr-[74px]"
+                className="w-full max-w-screen-xl mx-auto flex flex-col md:flex-row items-center md:items-center justify-between gap-4 md:gap-4 lg:gap-6 xl:gap-8 2xl:gap-10 pl-0 pr-0"
                 style={{
                     height: "100%",
                     minWidth: 0,
