@@ -23,3 +23,10 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
     display: none; /* Chrome, Safari and Opera */
 }
+
+/* BlazingDealsSection left padding */
+@media (min-width: 1024px) {
+    .blazing-deals-left {
+        padding-left: 2.6rem;
+    }
+}

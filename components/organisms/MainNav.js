@@ -14,27 +14,24 @@ export default function MainNav({ isMobile = false, isInSidebar = false }) {
         // Show full content in sidebar
         return (
             <nav className="bg-[#2f251d] border-b border-amber-900 min-h-[37px] px-4 py-3">
-                <div className="flex flex-col gap-4">
-                    <Logo textColor="text-white" className="" />
-                    <div className="flex flex-col gap-3">
-                        <NavLink active className="text-white">
-                            Explore
-                        </NavLink>
-                        <NavLink className="text-white">Services</NavLink>
-                        <NavLink className="text-white">Nightlife</NavLink>
-                        <NavLink className="text-white">Travel</NavLink>
-                        <NavLink className="text-white">Accommodation</NavLink>
-                        <NavLink className="text-white">Spaces</NavLink>
-                        <NavLink className="text-white">Subscriptions</NavLink>
-                        <NavLink className="text-white">Vouchers</NavLink>
-                        <NavLink className="text-white">Rentals</NavLink>
-                        <NavLink className="text-white">Voting</NavLink>
-                        <NavLink className="text-white">Shop</NavLink>
-                        <NavLink className="text-white">Essentials</NavLink>
-                        <NavLink className="text-white">Healthcare</NavLink>
-                        <NavLink className="text-white">Jobs</NavLink>
-                        <NavLink className="text-white">Marketplace</NavLink>
-                    </div>
+                <div className="flex flex-col gap-3">
+                    <NavLink active className="text-white">
+                        Explore
+                    </NavLink>
+                    <NavLink className="text-white">Services</NavLink>
+                    <NavLink className="text-white">Nightlife</NavLink>
+                    <NavLink className="text-white">Travel</NavLink>
+                    <NavLink className="text-white">Accommodation</NavLink>
+                    <NavLink className="text-white">Spaces</NavLink>
+                    <NavLink className="text-white">Subscriptions</NavLink>
+                    <NavLink className="text-white">Vouchers</NavLink>
+                    <NavLink className="text-white">Rentals</NavLink>
+                    <NavLink className="text-white">Voting</NavLink>
+                    <NavLink className="text-white">Shop</NavLink>
+                    <NavLink className="text-white">Essentials</NavLink>
+                    <NavLink className="text-white">Healthcare</NavLink>
+                    <NavLink className="text-white">Jobs</NavLink>
+                    <NavLink className="text-white">Marketplace</NavLink>
                 </div>
             </nav>
         );
