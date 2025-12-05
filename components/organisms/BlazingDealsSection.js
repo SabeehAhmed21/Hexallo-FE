@@ -6,11 +6,16 @@ import PropTypes from "prop-types";
 
 export default function BlazingDealsSection({ title, offers }) {
     return (
-        <section className="py-12 bg-white">
-            <div>
-                <div className="flex flex-col lg:flex-row gap-8 items-start">
+        <section className="py-8 md:py-12 bg-white w-full overflow-hidden">
+            <div className="w-full">
+                <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-center lg:items-start">
                     {/* Left Section */}
-                    <div className="flex-1 lg:max-w-md">
+                    <div
+                        className="w-full lg:flex-1 lg:max-w-md flex-shrink-0 px-4 lg:px-0 mx-auto lg:mx-0 pl-4 lg:pl-16"
+                        style={{
+                            margin: "auto",
+                        }}
+                    >
                         <h2
                             className="mb-4"
                             style={{
@@ -68,19 +73,21 @@ export default function BlazingDealsSection({ title, offers }) {
                         <CountdownTimer />
                     </div>
 
-                    {/* Right Section - Cards with Arrow Navigation using SectionWrapper */}
-                    <div className="flex-1 lg:flex-[2]">
-                        <SectionWrapper
-                            title=""
-                            cards={offers}
-                            cardType="offer"
-                            backgroundColor="transparent"
-                            showArrow={false}
-                            removePadding={true}
-                            renderAsDiv={true}
-                            alwaysShowArrows={true}
-                            showPartialLastCard={true}
-                        />
+                    {/* Right Section - Cards extend to right edge of viewport */}
+                    <div className="w-full lg:flex-[2] min-w-0 flex-shrink-0 overflow-visible">
+                        <div className="w-full pl-4 lg:pl-8 pr-0 overflow-visible">
+                            <SectionWrapper
+                                title=""
+                                cards={offers}
+                                cardType="offer"
+                                backgroundColor="transparent"
+                                showArrow={false}
+                                removePadding={true}
+                                renderAsDiv={true}
+                                alwaysShowArrows={true}
+                                showPartialLastCard={true}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

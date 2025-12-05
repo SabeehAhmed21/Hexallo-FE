@@ -188,7 +188,7 @@ export default function ScrollableCardContainer({
                         paddingRight: showPartialLastCard
                             ? "0"
                             : alwaysShowArrows || !isLargeScreen
-                            ? "1rem"
+                            ? "0"
                             : "0",
                         paddingLeft: "0",
                         width: "100%",

@@ -5,6 +5,7 @@ import SectionHeaderSkeleton from "../molecules/SectionHeaderSkeleton";
 import CardWrapper from "../molecules/CardWrapper";
 import EventCardSkeleton from "../atoms/EventCardSkeleton";
 import ExclusiveCardSkeleton from "../atoms/ExclusiveCardSkeleton";
+import OfferCardSkeleton from "../atoms/OfferCardSkeleton";
 import ScrollableCardContainer from "../molecules/ScrollableCardContainer";
 import { useLazyLoad } from "../../utils/useLazyLoad";
 import PropTypes from "prop-types";
@@ -20,12 +21,17 @@ export default function SectionWrapper({
     alwaysShowArrows = false,
     showPartialLastCard = false,
 }) {
+    // For offer cards (BlazingDealsSection), skip lazy loading
     const { elementRef, isLoaded } = useLazyLoad({
         threshold: 0.1,
         rootMargin: "100px",
         delay: 800,
         minDelay: 400,
     });
+
+    // For offer cards, always show content (no skeleton)
+    const shouldShowSkeleton =
+        cardType !== "offer" && !isLoaded && cards.length > 0;
 
     const Container = renderAsDiv ? "div" : "section";
 
@@ -104,7 +110,7 @@ export default function SectionWrapper({
 
                     {/* Responsive Cards Container */}
                     <div className="w-full">
-                        {!isLoaded && cards.length > 0 ? (
+                        {shouldShowSkeleton ? (
                             cardType === "exclusive" ? (
                                 <div className="flex flex-col sm:flex-row overflow-x-auto sm:overflow-x-visible pb-4 scrollbar-hide gap-2 sm:gap-2 md:gap-4 2xl:gap-4">
                                     {Array.from({
@@ -148,7 +154,8 @@ export default function SectionWrapper({
                                     ))}
                                 </ScrollableCardContainer>
                             )
-                        ) : isLoaded && cards.length > 0 ? (
+                        ) : (isLoaded || cardType === "offer") &&
+                          cards.length > 0 ? (
                             <>
                                 {/* Exclusive cards: Only 2 cards, side by side on medium+ screens */}
                                 {cardType === "exclusive" ? (

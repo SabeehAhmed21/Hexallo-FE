@@ -79,10 +79,7 @@ export default function OfferCard({
                         </p>
                     )}
                 </div>
-                <div
-                    className="flex flex-col items-center"
-                    style={{ marginTop: "auto" }}
-                >
+                <div className="flex flex-col items-center">
                     <p
                         style={{
                             fontSize: "12px",

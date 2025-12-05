@@ -397,10 +397,15 @@ export default function Home() {
                     cardType="destination"
                     backgroundColor="#FFFFFF"
                 />
-                {/* <BlazingDealsSection
-                    title="Blazing Deals"
-                    offers={blazingDealsOffers}
-                /> */}
+            </div>
+            <BlazingDealsSection
+                title="Blazing Deals"
+                offers={blazingDealsOffers}
+            />
+            <div
+                className="mx-auto px-4 lg:px-0"
+                style={{ maxWidth: "84.8rem", width: "100%" }}
+            >
                 <SectionWrapper
                     title="Discover Hidden Gems"
                     cards={hiddenGems}
