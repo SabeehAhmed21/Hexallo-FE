@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Footer() {
     return (
         <footer
-            className="w-full"
+            className="w-full md:px-0 sm:px-3"
             style={{
                 backgroundColor: "#AE6F28",
                 color: "#FFF6DF",
@@ -24,7 +24,7 @@ export default function Footer() {
             >
                 {/* First Div - All text content (Copyright + Links) */}
                 <div
-                    className="flex flex-col md:flex-row items-center md:items-center gap-4 md:gap-[96px] flex-shrink-0"
+                    className="flex flex-col md:flex-row items-center md:items-center gap-4 lg:gap-[96px] md:gap-[60px] flex-shrink-0"
                     style={{ minWidth: 0 }}
                 >
                     {/* Copyright */}
