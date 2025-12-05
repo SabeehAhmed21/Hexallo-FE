@@ -39,7 +39,10 @@ export default function SubNav({ isMobile = false, isInSidebar = false }) {
                     className="flex items-center gap-[0.85rem] flex-nowrap min-w-0"
                     style={{ width: "75rem" }}
                 >
-                    <NavLink active className="whitespace-nowrap flex-shrink-0">
+                    <NavLink
+                        active
+                        className="whitespace-nowrap flex-shrink-0"
+                    >
                         Home
                     </NavLink>
                     <NavLink className="whitespace-nowrap flex-shrink-0">

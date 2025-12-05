@@ -19,7 +19,7 @@ module.exports = {
                 inter: ["Inter", "sans-serif"],
             },
             maxWidth: {
-                "screen-xl": "1324px",
+                "screen-xl": "1272px",
             },
         },
     },
