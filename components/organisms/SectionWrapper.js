@@ -97,15 +97,15 @@ export default function SectionWrapper({
                     }}
                 >
                     <div className="w-full">
-                        {!isLoaded ? (
+                        {!isLoaded && cardType !== "offer" ? (
                             <SectionHeaderSkeleton showArrow={showArrow} />
-                        ) : (
+                        ) : title ? (
                             <SectionHeader
                                 title={title}
                                 alignLeft={false}
                                 showArrow={showArrow}
                             />
-                        )}
+                        ) : null}
                     </div>
 
                     {/* Responsive Cards Container */}

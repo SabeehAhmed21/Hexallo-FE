@@ -203,7 +203,8 @@ export default function ScrollableCardContainer({
                 ? showRightArrow && (
                       <button
                           onClick={() => scroll("right")}
-                          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 transition-all hover:scale-110"
+                          className="absolute top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 transition-all hover:scale-110"
+                          style={{ right: "36px" }}
                           aria-label="Scroll right"
                       >
                           <FiChevronRight className="w-6 h-6 text-gray-700" />
@@ -214,7 +215,8 @@ export default function ScrollableCardContainer({
                   showRightArrow && (
                       <button
                           onClick={() => scroll("right")}
-                          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 transition-all hover:scale-110"
+                          className="absolute top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 transition-all hover:scale-110"
+                          style={{ right: "36px" }}
                           aria-label="Scroll right"
                       >
                           <FiChevronRight className="w-6 h-6 text-gray-700" />
